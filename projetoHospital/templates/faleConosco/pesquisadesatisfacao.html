@@ -1,0 +1,2294 @@
+{% extends "base.html" %} {% load static %} {% block titulo %}Hospital Napoleão
+Laureano - Pesquisa de Satisfação{% endblock titulo %} {% block body %}
+
+<div class="navegacao">
+  <ul class="row-j-start">
+    <li>
+      <a class="navegacao-link" href="{% url 'home' %}">
+        Início
+        <i class="uil uil-angle-double-right"></i>
+      </a>
+    </li>
+    <li>
+      <a class="navegacao-link">
+        Fale Conosco
+        <i class="uil uil-angle-double-right"></i>
+      </a>
+    </li>
+    <li>
+      <a class="navegacao-link" href="{% url 'pesquisaSatisfacao' %}">
+        Pesquisa de Satisfação
+      </a>
+    </li>
+  </ul>
+</div>
+
+<h1 class="pags-title">Pesquisa de Satisfação</h1>
+
+<section class="pags-section column-center">
+  <h3 class="pags-h3 row-center">
+    Queremos saber a sua opinião sobre a qualidade de serviços prestados pela
+    instituição.<br />
+    Responda a enquete abaixo e ajude-nos a melhorar nosso atendimento.
+  </h3>
+
+  <form id="formulario" class="column-j-start" action="/action_page.php">
+    <div class="pesquisa">
+      <div class="colunas row-center">
+        <div class="avaliacao-wrapper row-center">
+          <div class="avaliacao">Muito Insatisfeito</div>
+          <div class="avaliacao">Insatisfeito</div>
+          <div class="avaliacao">Regular</div>
+          <div class="avaliacao">Satisfeito</div>
+          <div class="avaliacao">Muito Satisfeito</div>
+          <div class="avaliacao">Não Aplicável</div>
+        </div>
+      </div>
+
+      <div class="fix">
+        <div class="titulo-classe column-center">
+          <h2>Atendimento</h2>
+        </div>
+        <div class="column-center">
+          <div class="item-avaliacao row-center">
+            <div class="item">Clareza nas informações recebidas</div>
+            <div class="radio-wrapper row-center">
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="clareza-informacoes-recebidas"
+                  value="muito-insatisfeito"
+                  id="mui-insat_cla-info-rec"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-insat_cla-info-rec"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="clareza-informacoes-recebidas"
+                  value="insatisfeito"
+                  id="insat_cla-info-rec"
+                />
+                <label
+                  class="checked row-center"
+                  for="insat_cla-info-rec"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="clareza-informacoes-recebidas"
+                  value="regular"
+                  id="reg_cla-info-rec"
+                />
+                <label
+                  class="checked row-center"
+                  for="reg_cla-info-rec"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="clareza-informacoes-recebidas"
+                  value="satisfeito"
+                  id="sat_cla-info-rec"
+                />
+                <label
+                  class="checked row-center"
+                  for="sat_cla-info-rec"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="clareza-informacoes-recebidas"
+                  value="muito-satisfeito"
+                  id="mui-sat_cla-info-rec"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-sat_cla-info-rec"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="clareza-informacoes-recebidas"
+                  value="nao-aplicavel"
+                  id="nao-apl_cla-info-rec"
+                  checked="checked"
+                />
+                <label
+                  class="checked row-center"
+                  for="nao-apl_cla-info-rec"
+                ></label>
+              </div>
+            </div>
+          </div>
+          <div class="dividing-line dividing-line--avaliacao"></div>
+          <div class="item-avaliacao row-center">
+            <div class="item">Cordialidade do(s) atendente(s)</div>
+            <div class="radio-wrapper row-center">
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="cordialidade-atendente"
+                  value="muito-insatisfeito"
+                  id="mui-insat_cord-aten"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-insat_cord-aten"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="cordialidade-atendente"
+                  value="insatisfeito"
+                  id="insat_cord-aten"
+                />
+                <label class="checked row-center" for="insat_cord-aten"></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="cordialidade-atendente"
+                  value="regular"
+                  id="reg_cord-aten"
+                />
+                <label class="checked row-center" for="reg_cord-aten"></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="cordialidade-atendente"
+                  value="satisfeito"
+                  id="sat_cord-aten"
+                />
+                <label class="checked row-center" for="sat_cord-aten"></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="cordialidade-atendente"
+                  value="muito-satisfeito"
+                  id="mui-sat_cord-aten"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-sat_cord-aten"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="cordialidade-atendente"
+                  value="nao-aplicavel"
+                  id="nao-apl_cord-aten"
+                  checked="checked"
+                />
+                <label
+                  class="checked row-center"
+                  for="nao-apl_cord-aten"
+                ></label>
+              </div>
+            </div>
+          </div>
+          <div class="dividing-line dividing-line--avaliacao"></div>
+          <div class="item-avaliacao row-center">
+            <div class="item">Tempo de espera para o atendimento</div>
+            <div class="radio-wrapper row-center">
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="tempo-espera-atendimento"
+                  value="muito-insatisfeito"
+                  id="mui-insat_temp-esp-aten"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-insat_temp-esp-aten"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="tempo-espera-atendimento"
+                  value="insatisfeito"
+                  id="insat_temp-esp-aten"
+                />
+                <label
+                  class="checked row-center"
+                  for="insat_temp-esp-aten"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="tempo-espera-atendimento"
+                  value="regular"
+                  id="reg_temp-esp-aten"
+                />
+                <label
+                  class="checked row-center"
+                  for="reg_temp-esp-aten"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="tempo-espera-atendimento"
+                  value="satisfeito"
+                  id="sat_temp-esp-aten"
+                />
+                <label
+                  class="checked row-center"
+                  for="sat_temp-esp-aten"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="tempo-espera-atendimento"
+                  value="muito-satisfeito"
+                  id="mui-sat_temp-esp-aten"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-sat_temp-esp-aten"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="tempo-espera-atendimento"
+                  value="nao-aplicavel"
+                  id="nao-apl_temp-esp-aten"
+                  checked="checked"
+                />
+                <label
+                  class="checked row-center"
+                  for="nao-apl_temp-esp-aten"
+                ></label>
+              </div>
+            </div>
+          </div>
+          <div class="dividing-line dividing-line--avaliacao"></div>
+          <div class="item-avaliacao row-center">
+            <div class="item">Facilidade de agendar a consulta</div>
+            <div class="radio-wrapper row-center">
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="facilidade-agendar-consulta"
+                  value="muito-insatisfeito"
+                  id="mui-insat_fac-agen-cons"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-insat_fac-agen-cons"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="facilidade-agendar-consulta"
+                  value="insatisfeito"
+                  id="insat_fac-agen-cons"
+                />
+                <label
+                  class="checked row-center"
+                  for="insat_fac-agen-cons"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="facilidade-agendar-consulta"
+                  value="regular"
+                  id="reg_fac-agen-cons"
+                />
+                <label
+                  class="checked row-center"
+                  for="reg_fac-agen-cons"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="facilidade-agendar-consulta"
+                  value="satisfeito"
+                  id="sat_fac-agen-cons"
+                />
+                <label
+                  class="checked row-center"
+                  for="sat_fac-agen-cons"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="facilidade-agendar-consulta"
+                  value="muito-satisfeito"
+                  id="mui-sat_fac-agen-cons"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-sat_fac-agen-cons"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="facilidade-agendar-consulta"
+                  value="nao-aplicavel"
+                  id="nao-apl_fac-agen-cons"
+                  checked="checked"
+                />
+                <label
+                  class="checked row-center"
+                  for="nao-apl_fac-agen-cons"
+                ></label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dividing-line dividing-line--pesquisa"></div>
+
+      <div class="fix">
+        <div class="titulo-classe column-center">
+          <h2>Acesso</h2>
+        </div>
+        <div class="column-center">
+          <div class="item-avaliacao row-center">
+            <div class="item">Facilidade de chegar ao hospital</div>
+            <div class="radio-wrapper row-center">
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="facilidade-chegar-hospital"
+                  value="muito-insatisfeito"
+                  id="mui-insat_fac-cheg-hosp"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-insat_fac-cheg-hosp"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="facilidade-chegar-hospital"
+                  value="insatisfeito"
+                  id="insat_fac-cheg-hosp"
+                />
+                <label
+                  class="checked row-center"
+                  for="insat_fac-cheg-hosp"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="facilidade-chegar-hospital"
+                  value="regular"
+                  id="reg_fac-cheg-hosp"
+                />
+                <label
+                  class="checked row-center"
+                  for="reg_fac-cheg-hosp"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="facilidade-chegar-hospital"
+                  value="satisfeito"
+                  id="sat_fac-cheg-hosp"
+                />
+                <label
+                  class="checked row-center"
+                  for="sat_fac-cheg-hosp"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="facilidade-chegar-hospital"
+                  value="muito-satisfeito"
+                  id="mui-sat_fac-cheg-hosp"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-sat_fac-cheg-hosp"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="facilidade-chegar-hospital"
+                  value="nao-aplicavel"
+                  id="nao-apl_fac-cheg-hosp"
+                  checked="checked"
+                />
+                <label
+                  class="checked row-center"
+                  for="nao-apl_fac-cheg-hosp"
+                ></label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dividing-line dividing-line--pesquisa"></div>
+
+      <div class="fix">
+        <div class="titulo-classe column-center">
+          <h2>Acessibilidade</h2>
+        </div>
+        <div class="column-center">
+          <div class="item-avaliacao row-center">
+            <div class="item">Rampas de acesso, elevadores, etc</div>
+            <div class="radio-wrapper row-center">
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="rampas-elevadores-etc"
+                  value="muito-insatisfeito"
+                  id="mui-insat_ramp-elev-etc"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-insat_ramp-elev-etc"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="rampas-elevadores-etc"
+                  value="insatisfeito"
+                  id="insat_ramp-elev-etc"
+                />
+                <label
+                  class="checked row-center"
+                  for="insat_ramp-elev-etc"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="rampas-elevadores-etc"
+                  value="regular"
+                  id="reg_ramp-elev-etc"
+                />
+                <label
+                  class="checked row-center"
+                  for="reg_ramp-elev-etc"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="rampas-elevadores-etc"
+                  value="satisfeito"
+                  id="sat_ramp-elev-etc"
+                />
+                <label
+                  class="checked row-center"
+                  for="sat_ramp-elev-etc"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="rampas-elevadores-etc"
+                  value="muito-satisfeito"
+                  id="mui-sat_ramp-elev-etc"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-sat_ramp-elev-etc"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="rampas-elevadores-etc"
+                  value="nao-aplicavel"
+                  id="nao-apl_ramp-elev-etc"
+                  checked="checked"
+                />
+                <label
+                  class="checked row-center"
+                  for="nao-apl_ramp-elev-etc"
+                ></label>
+              </div>
+            </div>
+          </div>
+          <div class="dividing-line dividing-line--avaliacao"></div>
+          <div class="item-avaliacao row-center">
+            <div class="item">
+              Áreas preferenciais (estacionamento, banheiro, etc)
+            </div>
+            <div class="radio-wrapper row-center">
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="areas-preferenciais"
+                  value="muito-insatisfeito"
+                  id="mui-insat_area-pref"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-insat_area-pref"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="areas-preferenciais"
+                  value="insatisfeito"
+                  id="insat_area-pref"
+                />
+                <label class="checked row-center" for="insat_area-pref"></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="areas-preferenciais"
+                  value="regular"
+                  id="reg_area-pref"
+                />
+                <label class="checked row-center" for="reg_area-pref"></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="areas-preferenciais"
+                  value="satisfeito"
+                  id="sat_area-pref"
+                />
+                <label class="checked row-center" for="sat_area-pref"></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="areas-preferenciais"
+                  value="muito-satisfeito"
+                  id="mui-sat_area-pref"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-sat_area-pref"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="areas-preferenciais"
+                  value="nao-aplicavel"
+                  id="nao-apl_area-pref"
+                  checked="checked"
+                />
+                <label
+                  class="checked row-center"
+                  for="nao-apl_area-pref"
+                ></label>
+              </div>
+            </div>
+          </div>
+          <div class="dividing-line dividing-line--avaliacao"></div>
+          <div class="item-avaliacao row-center">
+            <div class="item">Atendimento preferencial e especializado</div>
+            <div class="radio-wrapper row-center">
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="atendimento-preferencial-especializado"
+                  value="muito-insatisfeito"
+                  id="mui-insat_aten-pref-espec"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-insat_aten-pref-espec"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="atendimento-preferencial-especializado"
+                  value="insatisfeito"
+                  id="insat_aten-pref-espec"
+                />
+                <label
+                  class="checked row-center"
+                  for="insat_aten-pref-espec"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="atendimento-preferencial-especializado"
+                  value="regular"
+                  id="reg_aten-pref-espec"
+                />
+                <label
+                  class="checked row-center"
+                  for="reg_aten-pref-espec"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="atendimento-preferencial-especializado"
+                  value="satisfeito"
+                  id="sat_aten-pref-espec"
+                />
+                <label
+                  class="checked row-center"
+                  for="sat_aten-pref-espec"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="atendimento-preferencial-especializado"
+                  value="muito-satisfeito"
+                  id="mui-sat_aten-pref-espec"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-sat_aten-pref-espec"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="atendimento-preferencial-especializado"
+                  value="nao-aplicavel"
+                  id="nao-apl_aten-pref-espec"
+                  checked="checked"
+                />
+                <label
+                  class="checked row-center"
+                  for="nao-apl_aten-pref-espec"
+                ></label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dividing-line dividing-line--pesquisa"></div>
+
+      <div class="fix">
+        <div class="titulo-classe column-center">
+          <h2>Recepção</h2>
+        </div>
+        <div class="column-center">
+          <div class="item-avaliacao row-center">
+            <div class="item">
+              Clareza das informações prestadas pelos profissionais da recepção
+              sobre o seu atendimento
+            </div>
+            <div class="radio-wrapper row-center">
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="clareza-informacoes-prestadas-profissionais-recepcao-sobre-atendimento"
+                  value="muito-insatisfeito"
+                  id="mui-insat_cla-info-recep-atend"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-insat_cla-info-recep-atend"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="clareza-informacoes-prestadas-profissionais-recepcao-sobre-atendimento"
+                  value="insatisfeito"
+                  id="insat_cla-info-recep-atend"
+                />
+                <label
+                  class="checked row-center"
+                  for="insat_cla-info-recep-atend"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="clareza-informacoes-prestadas-profissionais-recepcao-sobre-atendimento"
+                  value="regular"
+                  id="reg_cla-info-recep-atend"
+                />
+                <label
+                  class="checked row-center"
+                  for="reg_cla-info-recep-atend"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="clareza-informacoes-prestadas-profissionais-recepcao-sobre-atendimento"
+                  value="satisfeito"
+                  id="sat_cla-info-recep-atend"
+                />
+                <label
+                  class="checked row-center"
+                  for="sat_cla-info-recep-atend"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="clareza-informacoes-prestadas-profissionais-recepcao-sobre-atendimento"
+                  value="muito-satisfeito"
+                  id="mui-sat_cla-info-recep-atend"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-sat_cla-info-recep-atend"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="clareza-informacoes-prestadas-profissionais-recepcao-sobre-atendimento"
+                  value="nao-aplicavel"
+                  id="nao-apl_cla-info-recep-atend"
+                  checked="checked"
+                />
+                <label
+                  class="checked row-center"
+                  for="nao-apl_cla-info-recep-atend"
+                ></label>
+              </div>
+            </div>
+          </div>
+          <div class="dividing-line dividing-line--avaliacao"></div>
+          <div class="item-avaliacao row-center">
+            <div class="item">
+              Cortesia, gentileza e simpatia dos profissionais da recepção
+            </div>
+            <div class="radio-wrapper row-center">
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="cortesia-gentileza-simpatia-profissionais-recepcao"
+                  value="muito-insatisfeito"
+                  id="mui-insat_cort-gent-simp"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-insat_cort-gent-simp"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="cortesia-gentileza-simpatia-profissionais-recepcao"
+                  value="insatisfeito"
+                  id="insat_cort-gent-simp"
+                />
+                <label
+                  class="checked row-center"
+                  for="insat_cort-gent-simp"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="cortesia-gentileza-simpatia-profissionais-recepcao"
+                  value="regular"
+                  id="reg_cort-gent-simp"
+                />
+                <label
+                  class="checked row-center"
+                  for="reg_cort-gent-simp"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="cortesia-gentileza-simpatia-profissionais-recepcao"
+                  value="satisfeito"
+                  id="sat_cort-gent-simp"
+                />
+                <label
+                  class="checked row-center"
+                  for="sat_cort-gent-simp"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="cortesia-gentileza-simpatia-profissionais-recepcao"
+                  value="muito-satisfeito"
+                  id="mui-sat_cort-gent-simp"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-sat_cort-gent-simp"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="cortesia-gentileza-simpatia-profissionais-recepcao"
+                  value="nao-aplicavel"
+                  id="nao-apl_cort-gent-simp"
+                  checked="checked"
+                />
+                <label
+                  class="checked row-center"
+                  for="nao-apl_cort-gent-simp"
+                ></label>
+              </div>
+            </div>
+          </div>
+          <div class="dividing-line dividing-line--avaliacao"></div>
+          <div class="item-avaliacao row-center">
+            <div class="item">Agilidade no atendimento</div>
+            <div class="radio-wrapper row-center">
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="agilidade-atendimento"
+                  value="muito-insatisfeito"
+                  id="mui-insat_agil-aten"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-insat_agil-aten"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="agilidade-atendimento"
+                  value="insatisfeito"
+                  id="insat_agil-aten"
+                />
+                <label class="checked row-center" for="insat_agil-aten"></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="agilidade-atendimento"
+                  value="regular"
+                  id="reg_agil-aten"
+                />
+                <label class="checked row-center" for="reg_agil-aten"></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="agilidade-atendimento"
+                  value="satisfeito"
+                  id="sat_agil-aten"
+                />
+                <label class="checked row-center" for="sat_agil-aten"></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="agilidade-atendimento"
+                  value="muito-satisfeito"
+                  id="mui-sat_agil-aten"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-sat_agil-aten"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="agilidade-atendimento"
+                  value="nao-aplicavel"
+                  id="nao-apl_agil-aten"
+                  checked="checked"
+                />
+                <label
+                  class="checked row-center"
+                  for="nao-apl_agil-aten"
+                ></label>
+              </div>
+            </div>
+          </div>
+          <div class="dividing-line dividing-line--avaliacao"></div>
+          <div class="item-avaliacao row-center">
+            <div class="item">Disposição de resolver problema(s)</div>
+            <div class="radio-wrapper row-center">
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="disposicao-resolver-problemas"
+                  value="muito-insatisfeito"
+                  id="mui-insat_disp-resol-prob"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-insat_disp-resol-prob"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="disposicao-resolver-problemas"
+                  value="insatisfeito"
+                  id="insat_disp-resol-prob"
+                />
+                <label
+                  class="checked row-center"
+                  for="insat_disp-resol-prob"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="disposicao-resolver-problemas"
+                  value="regular"
+                  id="reg_disp-resol-prob"
+                />
+                <label
+                  class="checked row-center"
+                  for="reg_disp-resol-prob"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="disposicao-resolver-problemas"
+                  value="satisfeito"
+                  id="sat_disp-resol-prob"
+                />
+                <label
+                  class="checked row-center"
+                  for="sat_disp-resol-prob"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="disposicao-resolver-problemas"
+                  value="muito-satisfeito"
+                  id="mui-sat_disp-resol-prob"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-sat_disp-resol-prob"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="disposicao-resolver-problemas"
+                  value="nao-aplicavel"
+                  id="nao-apl_disp-resol-prob"
+                  checked="checked"
+                />
+                <label
+                  class="checked row-center"
+                  for="nao-apl_disp-resol-prob"
+                ></label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dividing-line dividing-line--pesquisa"></div>
+
+      <div class="fix">
+        <div class="titulo-classe column-center">
+          <h2>Instalações</h2>
+        </div>
+        <div class="column-center">
+          <div class="item-avaliacao row-center">
+            <div class="item">Conforto e limpeza da(s) sala(s) de consulta</div>
+            <div class="radio-wrapper row-center">
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="conforto-limpeza-sala-consulta"
+                  value="muito-insatisfeito"
+                  id="mui-insat_conf-limp-sala-cons"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-insat_conf-limp-sala-cons"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="conforto-limpeza-sala-consulta"
+                  value="insatisfeito"
+                  id="insat_conf-limp-sala-cons"
+                />
+                <label
+                  class="checked row-center"
+                  for="insat_conf-limp-sala-cons"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="conforto-limpeza-sala-consulta"
+                  value="regular"
+                  id="reg_conf-limp-sala-cons"
+                />
+                <label
+                  class="checked row-center"
+                  for="reg_conf-limp-sala-cons"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="conforto-limpeza-sala-consulta"
+                  value="satisfeito"
+                  id="sat_conf-limp-sala-cons"
+                />
+                <label
+                  class="checked row-center"
+                  for="sat_conf-limp-sala-cons"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="conforto-limpeza-sala-consulta"
+                  value="muito-satisfeito"
+                  id="mui-sat_conf-limp-sala-cons"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-sat_conf-limp-sala-cons"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="conforto-limpeza-sala-consulta"
+                  value="nao-aplicavel"
+                  id="nao-apl_conf-limp-sala-cons"
+                  checked="checked"
+                />
+                <label
+                  class="checked row-center"
+                  for="nao-apl_conf-limp-sala-cons"
+                ></label>
+              </div>
+            </div>
+          </div>
+          <div class="dividing-line dividing-line--avaliacao"></div>
+          <div class="item-avaliacao row-center">
+            <div class="item">Conforto e limpeza da sala de espera</div>
+            <div class="radio-wrapper row-center">
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="conforto-limpeza-sala-espera"
+                  value="muito-insatisfeito"
+                  id="mui-insat_conf-limp-sala-esp"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-insat_conf-limp-sala-esp"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="conforto-limpeza-sala-espera"
+                  value="insatisfeito"
+                  id="insat_conf-limp-sala-esp"
+                />
+                <label
+                  class="checked row-center"
+                  for="insat_conf-limp-sala-esp"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="conforto-limpeza-sala-espera"
+                  value="regular"
+                  id="reg_conf-limp-sala-esp"
+                />
+                <label
+                  class="checked row-center"
+                  for="reg_conf-limp-sala-esp"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="conforto-limpeza-sala-espera"
+                  value="satisfeito"
+                  id="sat_conf-limp-sala-esp"
+                />
+                <label
+                  class="checked row-center"
+                  for="sat_conf-limp-sala-esp"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="conforto-limpeza-sala-espera"
+                  value="muito-satisfeito"
+                  id="mui-sat_conf-limp-sala-esp"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-sat_conf-limp-sala-esp"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="conforto-limpeza-sala-espera"
+                  value="nao-aplicavel"
+                  id="nao-apl_conf-limp-sala-esp"
+                  checked="checked"
+                />
+                <label
+                  class="checked row-center"
+                  for="nao-apl_conf-limp-sala-esp"
+                ></label>
+              </div>
+            </div>
+          </div>
+          <div class="dividing-line dividing-line--avaliacao"></div>
+          <div class="item-avaliacao row-center">
+            <div class="item">Conveniência do estacionamento</div>
+            <div class="radio-wrapper row-center">
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="conveniencia-estacionamento"
+                  value="muito-insatisfeito"
+                  id="mui-insat_conv-estac"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-insat_conv-estac"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="conveniencia-estacionamento"
+                  value="insatisfeito"
+                  id="insat_conv-estac"
+                />
+                <label
+                  class="checked row-center"
+                  for="insat_conv-estac"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="conveniencia-estacionamento"
+                  value="regular"
+                  id="reg_conv-estac"
+                />
+                <label class="checked row-center" for="reg_conv-estac"></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="conveniencia-estacionamento"
+                  value="satisfeito"
+                  id="sat_conv-estac"
+                />
+                <label class="checked row-center" for="sat_conv-estac"></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="conveniencia-estacionamento"
+                  value="muito-satisfeito"
+                  id="mui-sat_conv-estac"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-sat_conv-estac"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="conveniencia-estacionamento"
+                  value="nao-aplicavel"
+                  id="nao-apl_conv-estac"
+                  checked="checked"
+                />
+                <label
+                  class="checked row-center"
+                  for="nao-apl_conv-estac"
+                ></label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dividing-line dividing-line--pesquisa"></div>
+
+      <div class="fix">
+        <div class="titulo-classe column-center">
+          <h2>Atendimento Médico</h2>
+        </div>
+        <div class="column-center">
+          <div class="item-avaliacao row-center">
+            <div class="item">
+              Clareza na linguagem utilizada pelo(s) médico(s)
+            </div>
+            <div class="radio-wrapper row-center">
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="clareza-linguagem-utilizada-medico"
+                  value="muito-insatisfeito"
+                  id="mui-insat_cla-ling-med"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-insat_cla-ling-med"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="clareza-linguagem-utilizada-medico"
+                  value="insatisfeito"
+                  id="insat_cla-ling-med"
+                />
+                <label
+                  class="checked row-center"
+                  for="insat_cla-ling-med"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="clareza-linguagem-utilizada-medico"
+                  value="regular"
+                  id="reg_cla-ling-med"
+                />
+                <label
+                  class="checked row-center"
+                  for="reg_cla-ling-med"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="clareza-linguagem-utilizada-medico"
+                  value="satisfeito"
+                  id="sat_cla-ling-med"
+                />
+                <label
+                  class="checked row-center"
+                  for="sat_cla-ling-med"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="clareza-linguagem-utilizada-medico"
+                  value="muito-satisfeito"
+                  id="mui-sat_cla-ling-med"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-sat_cla-ling-med"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="clareza-linguagem-utilizada-medico"
+                  value="nao-aplicavel"
+                  id="nao-apl_cla-ling-med"
+                  checked="checked"
+                />
+                <label
+                  class="checked row-center"
+                  for="nao-apl_cla-ling-med"
+                ></label>
+              </div>
+            </div>
+          </div>
+          <div class="dividing-line dividing-line--avaliacao"></div>
+          <div class="item-avaliacao row-center">
+            <div class="item">
+              Orientações fornecidas para os cuidados em casa
+            </div>
+            <div class="radio-wrapper row-center">
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="orientacoes-oferecidas-cuidados-casa"
+                  value="muito-insatisfeito"
+                  id="mui-insat_orie-forn-casa"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-insat_orie-forn-casa"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="orientacoes-oferecidas-cuidados-casa"
+                  value="insatisfeito"
+                  id="insat_orie-forn-casa"
+                />
+                <label
+                  class="checked row-center"
+                  for="insat_orie-forn-casa"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="orientacoes-oferecidas-cuidados-casa"
+                  value="regular"
+                  id="reg_orie-forn-casa"
+                />
+                <label
+                  class="checked row-center"
+                  for="reg_orie-forn-casa"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="orientacoes-oferecidas-cuidados-casa"
+                  value="satisfeito"
+                  id="sat_orie-forn-casa"
+                />
+                <label
+                  class="checked row-center"
+                  for="sat_orie-forn-casa"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="orientacoes-oferecidas-cuidados-casa"
+                  value="muito-satisfeito"
+                  id="mui-sat_orie-forn-casa"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-sat_orie-forn-casa"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="orientacoes-oferecidas-cuidados-casa"
+                  value="nao-aplicavel"
+                  id="nao-apl_orie-forn-casa"
+                  checked="checked"
+                />
+                <label
+                  class="checked row-center"
+                  for="nao-apl_orie-forn-casa"
+                ></label>
+              </div>
+            </div>
+          </div>
+          <div class="dividing-line dividing-line--avaliacao"></div>
+          <div class="item-avaliacao row-center">
+            <div class="item">Confiança no trabalho do(s) médico(s)</div>
+            <div class="radio-wrapper row-center">
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="confianca-trabalho-medico"
+                  value="muito-insatisfeito"
+                  id="mui-insat_conf-trab-med"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-insat_conf-trab-med"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="confianca-trabalho-medico"
+                  value="insatisfeito"
+                  id="insat_conf-trab-med"
+                />
+                <label
+                  class="checked row-center"
+                  for="insat_conf-trab-med"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="confianca-trabalho-medico"
+                  value="regular"
+                  id="reg_conf-trab-med"
+                />
+                <label
+                  class="checked row-center"
+                  for="reg_conf-trab-med"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="confianca-trabalho-medico"
+                  value="satisfeito"
+                  id="sat_conf-trab-med"
+                />
+                <label
+                  class="checked row-center"
+                  for="sat_conf-trab-med"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="confianca-trabalho-medico"
+                  value="muito-satisfeito"
+                  id="mui-sat_conf-trab-med"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-sat_conf-trab-med"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="confianca-trabalho-medico"
+                  value="nao-aplicavel"
+                  id="nao-apl_conf-trab-med"
+                  checked="checked"
+                />
+                <label
+                  class="checked row-center"
+                  for="nao-apl_conf-trab-med"
+                ></label>
+              </div>
+            </div>
+          </div>
+          <div class="dividing-line dividing-line--avaliacao"></div>
+          <div class="item-avaliacao row-center">
+            <div class="item">
+              Probabilidade de recomendar o profissional a outras pessoas
+            </div>
+            <div class="radio-wrapper row-center">
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="probabilidade-recomendar-profissional-outras-pessoas"
+                  value="muito-insatisfeito"
+                  id="mui-insat_prob-rec-prof-pess"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-insat_prob-rec-prof-pess"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="probabilidade-recomendar-profissional-outras-pessoas"
+                  value="insatisfeito"
+                  id="insat_prob-rec-prof-pess"
+                />
+                <label
+                  class="checked row-center"
+                  for="insat_prob-rec-prof-pess"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="probabilidade-recomendar-profissional-outras-pessoas"
+                  value="regular"
+                  id="reg_prob-rec-prof-pess"
+                />
+                <label
+                  class="checked row-center"
+                  for="reg_prob-rec-prof-pess"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="probabilidade-recomendar-profissional-outras-pessoas"
+                  value="satisfeito"
+                  id="sat_prob-rec-prof-pess"
+                />
+                <label
+                  class="checked row-center"
+                  for="sat_prob-rec-prof-pess"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="probabilidade-recomendar-profissional-outras-pessoas"
+                  value="muito-satisfeito"
+                  id="mui-sat_prob-rec-prof-pess"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-sat_prob-rec-prof-pess"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="probabilidade-recomendar-profissional-outras-pessoas"
+                  value="nao-aplicavel"
+                  id="nao-apl_prob-rec-prof-pess"
+                  checked="checked"
+                />
+                <label
+                  class="checked row-center"
+                  for="nao-apl_prob-rec-prof-pess"
+                ></label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dividing-line dividing-line--pesquisa"></div>
+
+      <div class="fix">
+        <div class="titulo-classe column-center">
+          <h2>Equipe de Enfermagem</h2>
+        </div>
+        <div class="column-center">
+          <div class="item-avaliacao row-center">
+            <div class="item">
+              Prontidão da equipe de enfermagem no atendimento
+            </div>
+            <div class="radio-wrapper row-center">
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="prontidao-equipe-enfermagem-atendimento"
+                  value="muito-insatisfeito"
+                  id="mui-insat_pront-equi-enf"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-insat_pront-equi-enf"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="prontidao-equipe-enfermagem-atendimento"
+                  value="insatisfeito"
+                  id="insat_pront-equi-enf"
+                />
+                <label
+                  class="checked row-center"
+                  for="insat_pront-equi-enf"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="prontidao-equipe-enfermagem-atendimento"
+                  value="regular"
+                  id="reg_pront-equi-enf"
+                />
+                <label
+                  class="checked row-center"
+                  for="reg_pront-equi-enf"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="prontidao-equipe-enfermagem-atendimento"
+                  value="satisfeito"
+                  id="sat_pront-equi-enf"
+                />
+                <label
+                  class="checked row-center"
+                  for="sat_pront-equi-enf"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="prontidao-equipe-enfermagem-atendimento"
+                  value="muito-satisfeito"
+                  id="mui-sat_pront-equi-enf"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-sat_pront-equi-enf"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="prontidao-equipe-enfermagem-atendimento"
+                  value="nao-aplicavel"
+                  id="nao-apl_pront-equi-enf"
+                  checked="checked"
+                />
+                <label
+                  class="checked row-center"
+                  for="nao-apl_pront-equi-enf"
+                ></label>
+              </div>
+            </div>
+          </div>
+          <div class="dividing-line dividing-line--avaliacao"></div>
+          <div class="item-avaliacao row-center">
+            <div class="item">
+              Sua confiança no trabalho da equipe de enfermagem
+            </div>
+            <div class="radio-wrapper row-center">
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="confianca-trabalho-equipe-enfermagem"
+                  value="muito-insatisfeito"
+                  id="mui-insat_conf-trab-equi-enf"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-insat_conf-trab-equi-enf"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="confianca-trabalho-equipe-enfermagem"
+                  value="insatisfeito"
+                  id="insat_conf-trab-equi-enf"
+                />
+                <label
+                  class="checked row-center"
+                  for="insat_conf-trab-equi-enf"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="confianca-trabalho-equipe-enfermagem"
+                  value="regular"
+                  id="reg_conf-trab-equi-enf"
+                />
+                <label
+                  class="checked row-center"
+                  for="reg_conf-trab-equi-enf"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="confianca-trabalho-equipe-enfermagem"
+                  value="satisfeito"
+                  id="sat_conf-trab-equi-enf"
+                />
+                <label
+                  class="checked row-center"
+                  for="sat_conf-trab-equi-enf"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="confianca-trabalho-equipe-enfermagem"
+                  value="muito-satisfeito"
+                  id="mui-sat_conf-trab-equi-enf"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-sat_conf-trab-equi-enf"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="confianca-trabalho-equipe-enfermagem"
+                  value="nao-aplicavel"
+                  id="nao-apl_conf-trab-equi-enf"
+                  checked="checked"
+                />
+                <label
+                  class="checked row-center"
+                  for="nao-apl_conf-trab-equi-enf"
+                ></label>
+              </div>
+            </div>
+          </div>
+          <div class="dividing-line dividing-line--avaliacao"></div>
+          <div class="item-avaliacao row-center">
+            <div class="item">
+              Atenção da equipe de enfermagem em relação ao seu tratamento
+            </div>
+            <div class="radio-wrapper row-center">
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="atencao-equipe-enfermagem-relacao-trabalho"
+                  value="muito-insatisfeito"
+                  id="mui-insat_atenc-equi-enf"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-insat_atenc-equi-enf"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="atencao-equipe-enfermagem-relacao-trabalho"
+                  value="insatisfeito"
+                  id="insat_atenc-equi-enf"
+                />
+                <label
+                  class="checked row-center"
+                  for="insat_atenc-equi-enf"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="atencao-equipe-enfermagem-relacao-trabalho"
+                  value="regular"
+                  id="reg_atenc-equi-enf"
+                />
+                <label
+                  class="checked row-center"
+                  for="reg_atenc-equi-enf"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="atencao-equipe-enfermagem-relacao-trabalho"
+                  value="satisfeito"
+                  id="sat_atenc-equi-enf"
+                />
+                <label
+                  class="checked row-center"
+                  for="sat_atenc-equi-enf"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="atencao-equipe-enfermagem-relacao-trabalho"
+                  value="muito-satisfeito"
+                  id="mui-sat_atenc-equi-enf"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-sat_atenc-equi-enf"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="atencao-equipe-enfermagem-relacao-trabalho"
+                  value="nao-aplicavel"
+                  id="nao-apl_atenc-equi-enf"
+                  checked="checked"
+                />
+                <label
+                  class="checked row-center"
+                  for="nao-apl_atenc-equi-enf"
+                ></label>
+              </div>
+            </div>
+          </div>
+          <div class="dividing-line dividing-line--avaliacao"></div>
+          <div class="item-avaliacao row-center">
+            <div class="item">Informações dadas pela equipe de enfermagem</div>
+            <div class="radio-wrapper row-center">
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="informacoes-dadas-equipe-enfermagem"
+                  value="muito-insatisfeito"
+                  id="mui-insat_inf-equi-enf"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-insat_inf-equi-enf"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="informacoes-dadas-equipe-enfermagem"
+                  value="insatisfeito"
+                  id="insat_inf-equi-enf"
+                />
+                <label
+                  class="checked row-center"
+                  for="insat_inf-equi-enf"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="informacoes-dadas-equipe-enfermagem"
+                  value="regular"
+                  id="reg_inf-equi-enf"
+                />
+                <label
+                  class="checked row-center"
+                  for="reg_inf-equi-enf"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="informacoes-dadas-equipe-enfermagem"
+                  value="satisfeito"
+                  id="sat_inf-equi-enf"
+                />
+                <label
+                  class="checked row-center"
+                  for="sat_inf-equi-enf"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="informacoes-dadas-equipe-enfermagem"
+                  value="muito-satisfeito"
+                  id="mui-sat_inf-equi-enf"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-sat_inf-equi-enf"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="informacoes-dadas-equipe-enfermagem"
+                  value="nao-aplicavel"
+                  id="nao-apl_inf-equi-enf"
+                  checked="checked"
+                />
+                <label
+                  class="checked row-center"
+                  for="nao-apl_inf-equi-enf"
+                ></label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dividing-line dividing-line--pesquisa"></div>
+
+      <div class="fix">
+        <div class="titulo-classe column-center">
+          <h2>Exames</h2>
+        </div>
+        <div class="column-center">
+          <div class="item-avaliacao row-center">
+            <div class="item">
+              Atenção do profissional que realizou seu(s) exame(s)
+            </div>
+            <div class="radio-wrapper row-center">
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="atencao-profissional-realizou-exame"
+                  value="muito-insatisfeito"
+                  id="mui-insat_aten-prof-real-exam"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-insat_aten-prof-real-exam"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="atencao-profissional-realizou-exame"
+                  value="insatisfeito"
+                  id="insat_aten-prof-real-exam"
+                />
+                <label
+                  class="checked row-center"
+                  for="insat_aten-prof-real-exam"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="atencao-profissional-realizou-exame"
+                  value="regular"
+                  id="reg_aten-prof-real-exam"
+                />
+                <label
+                  class="checked row-center"
+                  for="reg_aten-prof-real-exam"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="atencao-profissional-realizou-exame"
+                  value="satisfeito"
+                  id="sat_aten-prof-real-exam"
+                />
+                <label
+                  class="checked row-center"
+                  for="sat_aten-prof-real-exam"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="atencao-profissional-realizou-exame"
+                  value="muito-satisfeito"
+                  id="mui-sat_aten-prof-real-exam"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-sat_aten-prof-real-exam"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="atencao-profissional-realizou-exame"
+                  value="nao-aplicavel"
+                  id="nao-apl_aten-prof-real-exam"
+                  checked="checked"
+                />
+                <label
+                  class="checked row-center"
+                  for="nao-apl_aten-prof-real-exam"
+                ></label>
+              </div>
+            </div>
+          </div>
+          <div class="dividing-line dividing-line--avaliacao"></div>
+          <div class="item-avaliacao row-center">
+            <div class="item">
+              Facilidade para se conseguir o(s) resultado(s) do(s) exame(s)
+            </div>
+            <div class="radio-wrapper row-center">
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="facilidade-conseguir-resultados-exames"
+                  value="muito-insatisfeito"
+                  id="mui-insat_fac-cons-result"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-insat_fac-cons-result"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="facilidade-conseguir-resultados-exames"
+                  value="insatisfeito"
+                  id="insat_fac-cons-result"
+                />
+                <label
+                  class="checked row-center"
+                  for="insat_fac-cons-result"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="facilidade-conseguir-resultados-exames"
+                  value="regular"
+                  id="reg_fac-cons-result"
+                />
+                <label
+                  class="checked row-center"
+                  for="reg_fac-cons-result"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="facilidade-conseguir-resultados-exames"
+                  value="satisfeito"
+                  id="sat_fac-cons-result"
+                />
+                <label
+                  class="checked row-center"
+                  for="sat_fac-cons-result"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="facilidade-conseguir-resultados-exames"
+                  value="muito-satisfeito"
+                  id="mui-sat_fac-cons-result"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-sat_fac-cons-result"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="facilidade-conseguir-resultados-exames"
+                  value="nao-aplicavel"
+                  id="nao-apl_fac-cons-result"
+                  checked="checked"
+                />
+                <label
+                  class="checked row-center"
+                  for="nao-apl_fac-cons-result"
+                ></label>
+              </div>
+            </div>
+          </div>
+          <div class="dividing-line dividing-line--avaliacao"></div>
+          <div class="item-avaliacao row-center">
+            <div class="item">Qualidade técnica da coleta do(s) exame(s)</div>
+            <div class="radio-wrapper row-center">
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="qualidade-tecnica-coleta-exame"
+                  value="muito-insatisfeito"
+                  id="mui-insat_qual-tecn-cole-exam"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-insat_qual-tecn-cole-exam"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="qualidade-tecnica-coleta-exame"
+                  value="insatisfeito"
+                  id="insat_qual-tecn-cole-exam"
+                />
+                <label
+                  class="checked row-center"
+                  for="insat_qual-tecn-cole-exam"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="qualidade-tecnica-coleta-exame"
+                  value="regular"
+                  id="reg_qual-tecn-cole-exam"
+                />
+                <label
+                  class="checked row-center"
+                  for="reg_qual-tecn-cole-exam"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="qualidade-tecnica-coleta-exame"
+                  value="satisfeito"
+                  id="sat_qual-tecn-cole-exam"
+                />
+                <label
+                  class="checked row-center"
+                  for="sat_qual-tecn-cole-exam"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="qualidade-tecnica-coleta-exame"
+                  value="muito-satisfeito"
+                  id="mui-sat_qual-tecn-cole-exam"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-sat_qual-tecn-cole-exam"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="qualidade-tecnica-coleta-exame"
+                  value="nao-aplicavel"
+                  id="nao-apl_qual-tecn-cole-exam"
+                  checked="checked"
+                />
+                <label
+                  class="checked row-center"
+                  for="nao-apl_qual-tecn-cole-exam"
+                ></label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dividing-line dividing-line--pesquisa"></div>
+
+      <div class="fix">
+        <div class="titulo-classe column-center">
+          <h2>Avaliação Geral</h2>
+        </div>
+        <div class="column-center">
+          <div class="item-avaliacao row-center">
+            <div class="item">
+              Avaliação geral do atendimento recebido durante sua visita
+            </div>
+            <div class="radio-wrapper row-center">
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="avaliacao-geral-atendimento-visita"
+                  value="muito-insatisfeito"
+                  id="mui-insat_aval-geral"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-insat_aval-geral"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="avaliacao-geral-atendimento-visita"
+                  value="insatisfeito"
+                  id="insat_aval-geral"
+                />
+                <label
+                  class="checked row-center"
+                  for="insat_aval-geral"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="avaliacao-geral-atendimento-visita"
+                  value="regular"
+                  id="reg_aval-geral"
+                />
+                <label class="checked row-center" for="reg_aval-geral"></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="avaliacao-geral-atendimento-visita"
+                  value="satisfeito"
+                  id="sat_aval-geral"
+                />
+                <label class="checked row-center" for="sat_aval-geral"></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="avaliacao-geral-atendimento-visita"
+                  value="muito-satisfeito"
+                  id="mui-sat_aval-geral"
+                />
+                <label
+                  class="checked row-center"
+                  for="mui-sat_aval-geral"
+                ></label>
+              </div>
+              <div class="radio-container">
+                <input
+                  type="radio"
+                  name="avaliacao-geral-atendimento-visita"
+                  value="nao-aplicavel"
+                  id="nao-apl_aval-geral"
+                  checked="checked"
+                />
+                <label
+                  class="checked row-center"
+                  for="nao-apl_aval-geral"
+                ></label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dividing-line dividing-line--pesquisa"></div>
+    </div>
+
+    <label class="label" for="form-nome">Seu nome*</label>
+    <input
+      type="text"
+      id="form-nome"
+      name="nome"
+      placeholder="Nome completo"
+      required
+    />
+
+    <div class="row-j-start form-double-wrapper">
+      <div class="column-j-start form-double">
+        <label class="label" for="form-email">Seu email*</label>
+        <input
+          type="email"
+          id="form-email"
+          name="email"
+          placeholder="Email"
+          required
+        />
+      </div>
+
+      <div class="column-j-start form-double">
+        <label class="label" for="form-telefone">Seu telefone*</label>
+        <input
+          type="text"
+          id="form-telefone"
+          name="telefone"
+          placeholder="Telefone"
+          pattern="\([0-9]{2}\)[\s][0-9]{5}-[0-9]{4}"
+          required
+        />
+      </div>
+    </div>
+
+    <label class="label" for="form-nome">Assunto*</label>
+    <input
+      type="text"
+      id="form-assunto"
+      name="assunto"
+      placeholder="Assunto"
+      required
+    />
+
+    <label class="label" for="form-mensagem">Mensagem*</label>
+    <textarea placeholder="Dúvidas, elogios ou sugestões" required></textarea>
+
+    <input type="submit" value="Enviar" />
+  </form>
+</section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+<script type="text/javascript" src='{% static "/scripts/forms.js" %}'></script>
+
+{% endblock body %}

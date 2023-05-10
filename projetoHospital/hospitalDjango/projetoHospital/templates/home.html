@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/principal.css' %}">
+{% endblock css %}
+
+
+{% block titulo %}
+HOSPITAL LAUREANO - PÁGINA INICIAL
+{% endblock titulo %}
+
+{% block body %}
+<h1>TESTE - PÁGINA INICIAL</h1>
+<a class=" text-success">{% if user.is_authenticated %} Olá {{ user.username }}! {% endif %} <a/>
+{% if user.is_authenticated %}
+<p><a class="nav-link text-success" href="{% url 'logout-user' %}">Sair da conta</a></p>
+{% endif %}
+       
+
+
+{% for item in banner %}  
+<ul>
+    <li>
+        <img src="/image/{{ item.FotoBanner }}" width="500"> 
+    </li>
+</ul>
+
+{% endfor %}
+
+<ul>
+<li><a href="{% url 'parceiros' %}">PARCEIROS</a></li>
+
+<li><a href="{% url 'noticias' %}">NOTICIAS</a></li>
+
+<li> <a href="{% url 'contatos' %}">CONTATOS</a></li>
+
+<li> <a href="{% url 'quem-somos'%}">QUEM SOMOS</a> </li>
+
+<li> <a href="{% url 'servicos'%}">SERVIÇOS</a> </li>
+
+<li> <a href="{% url 'doacao'%}">FAÇA AQUI SUA DOAÇÃO</a> </li>
+
+<li> <a href="{% url 'eventos'%}">EVENTOS</a> </li>
+
+<li> <a href="{% url 'register-user'%}">ÁREA DO PACIENTE - REGISTRO</a></li>
+
+<li> <a href="{% url 'login-user'%}">ÁREA DO PACIENTE - ACESSO</a> </li>
+
+<li> <a href="{% url 'resultado-exame'%}">RESULTADOS EXAME</a> </li>
+
+<li> <a href="{% url 'alterar-senha'%}">ALTERAR SENHA</a> </li>
+
+<li> <a href="{% url 'guia-medico'%}">GUIA MÉDICO</a> </li>
+
+<li> <a href="{% url 'convenio'%}">CONVENIOS</a> </li>
+
+<li><a href="{% url 'diretoria' %}">DIRETORIA</a></li>
+
+<li><a href="{% url 'premio' %}">PREMIOS E CERTIFICAÇÕES</a></li>
+
+<li><a href="{% url 'transparencia' %}">TRANSPARÊNCIA</a></li>
+
+</ul>
+
+{% endblock body %}

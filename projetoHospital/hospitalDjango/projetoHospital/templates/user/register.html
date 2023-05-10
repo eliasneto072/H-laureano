@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/principal.css' %}">
+{% endblock css %}
+
+
+{% block title %}
+HOSPITAL LAUREANO - RESULTADO EXAMES    
+{% endblock title %}
+
+{% block body %}
+<a class="mx-auto my-0 text-uppercase text-amarelo mx-auto mt-2 mb-5 style=" href="{% url 'home' %}">Back</a>
+<h1>Area do Paciente - Registro</h1>
+<form method="post">
+    {% csrf_token %}
+
+ 
+        {{form_usuario.username.errors}}
+        <label>Usuario: </label>
+        {{form_usuario.username}}
+
+
+        {{form_usuario.password1.errors}}
+        <label>Senha: </label>
+        {{form_usuario.password1}}
+
+        {{form_usuario.password2.errors}}
+        <label>Confirme a senha: </label>
+        {{form_usuario.password2}}
+
+        <input type="submit" value="Register" class="btn btn-primary">
+
+</form>
+
+{% endblock body %}

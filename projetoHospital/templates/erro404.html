@@ -1,0 +1,28 @@
+{% extends 'base.html' %} {% load static %} {% block titulo %}Hospital Napoleão
+Laureano - Página não Encontrada {%endblock titulo %} {% block body %}
+
+<div class="navegacao">
+  <ul class="row-j-start">
+    <li>
+      <a class="navegacao-link" href="{% url 'home' %}">
+        Início
+        <i class="uil uil-angle-double-right"></i>
+      </a>
+    </li>
+    <li>
+      <a class="navegacao-link"> Página não encontrada </a>
+    </li>
+  </ul>
+</div>
+
+<h1 class="pags-title">Página Não Encontrada</h1>
+<section class="pags-section column-center">
+  <h2 class="pags-h2 self-start">
+    A página que você está procurando não existe.
+  </h2>
+  <p class="pags-text self-start">
+    Verifique se há um erro de digitação na URL ou
+    <a href="{% url 'home' %}">vá para a página inicial</a>
+  </p>
+</section>
+{% endblock body %}

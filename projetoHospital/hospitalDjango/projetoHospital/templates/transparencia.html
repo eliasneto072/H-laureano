@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+
+{% block titulo %}
+HOSPITAL LAUREANO - TRANSPARÊNCIA
+{% endblock titulo %} 
+
+{% block body %}
+
+<h1>TESTE - TRANSPARÊNCIA</h1>
+
+
+
+{% for item in transparencia %}  
+<ul>
+    <li>
+        <embed src="/image/{{ item.PdfTransparencia}}" height="100%" width="100%">
+    </li>
+</ul> 
+
+{% endfor %}
+
+<a class="mx-auto my-0 text-uppercase text-amarelo mx-auto mt-2 mb-5 style=" href="{% url 'home' %}">Back</a>
+{% endblock body %}

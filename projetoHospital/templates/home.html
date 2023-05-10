@@ -1,0 +1,195 @@
+{% extends 'base.html' %} {% load static %} {% block css %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+{% endblock css %} {% block body %}
+<div class="main-content">
+  <section class="banner-container column-center">
+    <div class="banner-images-wrapper">
+      {% for item in banner|slice:3 %}
+      <img src="/image/{{ item.FotoBanner }}" class="banner fade" />
+      {% endfor %}
+    </div>
+    <div class="move-buttons">
+      <a class="back" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="forward" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <div class="dots-buttons">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+    <div class="banner-container--side-menu">
+      <button
+        class="side-menu_arrow dark-green big"
+        onclick="sendTo('{% url 'doacao' %}')"
+      >
+        Faça sua doação
+      </button>
+      <button
+        class="side-menu_arrow light-green"
+        onclick="sendTo('{% url 'guia-medico' %}')"
+      >
+        Guia médico
+      </button>
+      <button
+        class="side-menu_arrow dark-green small"
+        onclick="sendTo('{% url 'eventos' %}')"
+      >
+        Eventos
+      </button>
+      <button
+        class="side-menu_arrow light-green"
+        onclick="sendTo('{% url 'convenio' %}')"
+      >
+        Convênios
+      </button>
+      <button
+        class="side-menu_arrow dark-green big"
+        onclick="sendTo('{% url 'galeria' %}')"
+      >
+        Galeria de fotos
+      </button>
+    </div>
+
+    <section class="smallDevice-menu-container row-center">
+      <div class="smallDevice-menu-icone row-center">
+        <div class="smallDevice-menu-div column-center">
+          <div class="smallDevice-menu-div--img">
+            <img
+              src="{% static '/images/guia-medico-png.png' %}"
+              alt="/"
+              class="smallDevice-menu-icone-img"
+              onclick="sendTo('{% url 'guia-medico' %}')"
+            />
+          </div>
+          <a class="smallDevice-menu-legenda">Guia Médico</a>
+        </div>
+
+        <div class="smallDevice-menu-div column-center">
+          <div class="smallDevice-menu-div--img">
+            <img
+              src="{% static '/images/convenio-png.png' %}"
+              alt="convênios"
+              class="smallDevice-menu-icone-img"
+              onclick="sendTo('{% url 'convenio' %}')"
+            />
+          </div>
+          <a class="smallDevice-menu-legenda">Convênios</a>
+        </div>
+
+        <div class="smallDevice-menu-div column-center">
+          <div class="smallDevice-menu-div--img">
+            <img
+              src="{% static '/images/doacao-png.png' %}"
+              alt="doação"
+              class="smallDevice-menu-icone-img"
+              onclick="sendTo('{% url 'doacao' %}')"
+            />
+          </div>
+          <a class="smallDevice-menu-legenda text-color-pink">Doe</a>
+        </div>
+
+        <div class="smallDevice-menu-div column-center">
+          <div class="smallDevice-menu-div--img">
+            <img
+              src="{% static '/images/area-do-paciente-png.png' %}"
+              alt="transparencia"
+              class="smallDevice-menu-icone-img"
+              onclick="sendTo('#')"
+            />
+          </div>
+          <a class="smallDevice-menu-legenda">Área do Paciente</a>
+        </div>
+
+        <div class="smallDevice-menu-div column-center">
+          <div class="smallDevice-menu-div--img">
+            <img
+              src="{% static '/images/galeria-png.png' %}"
+              alt="eventos"
+              class="smallDevice-menu-icone-img"
+              onclick="sendTo('{% url 'galeria' %}')"
+            />
+          </div>
+          <a class="smallDevice-menu-legenda">Galeria de Fotos</a>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <button class="donation-button" onclick="{% url 'doacao' %}">
+    Quero doar
+  </button>
+
+  <div class="dividing-line dividing-line--section"></div>
+  <section class="news-container">
+    <a class="title-section" href="{% url 'noticias' %}">Notícias</a>
+    {% for item in noticia|slice:":3" %}
+    <div class="news--wrapper row-center">
+      <img
+        src="/image/{{ item.Imagem }}"
+        class="news--image"
+        onclick="sendTo('{% url 'detail-noticias' item.id %}')"
+      />
+      <div class="news--content">
+        <a
+          href="{% url 'detail-noticias' item.id %}"
+          class="news--content--title"
+        >
+          {{ item.Titulo }}
+        </a>
+        <span class="news--content--date">{{ item.Data }}</span>
+        <p class="news--content--preview">{{ item.Corpo }}</p>
+        <button
+          class="news--content--button"
+          onclick="sendTo('{% url 'detail-noticias' item.id %}')"
+        >
+          Leia mais
+        </button>
+      </div>
+    </div>
+    <div class="dividing-line dividing-line--news"></div>
+    {% endfor %}
+  </section>
+
+  <div class="dividing-line dividing-line--section"></div>
+  <section class="cooperative-container">
+    <a class="title-section" href="{% url 'convenio' %}">Convênios</a>
+    <div class="cooperative--wrapper row-center">
+      <a class="previous">&#10094;</a>
+      {% for item in convenio %}
+      <div class="image-container">
+        <img
+          src="/image/{{ item.FotoCovenio }}"
+          alt="{{item.NomeConvenio}}"
+          class="cooperative--image"
+        />
+      </div>
+      {% endfor %}
+      <a class="next">&#10095;</a>
+    </div>
+  </section>
+
+  <div class="dividing-line dividing-line--section"></div>
+  <section class="certificate-container">
+    <h3 class="title-section">Prêmios e Certificações</h3>
+    <div class="certificate--wrapper row-center">
+      <a class="previous">&#10094;</a>
+      {% for item in premio|slice:6 %}
+      <div class="image-container">
+        <img
+          src="/image/{{ item.FotoPremio }}"
+          alt="{{ item.NomePremio }}"
+          class="certificate--image"
+        />
+      </div>
+      {% endfor %}
+      <a class="next">&#10095;</a>
+    </div>
+  </section>
+</div>
+
+<script type="text/javascript" src='{% static "/scripts/banner.js" %}'></script>
+<script
+  type="text/javascript"
+  src='{% static "/scripts/rotativeCertConv.js" %}'
+></script>
+{% endblock body %}

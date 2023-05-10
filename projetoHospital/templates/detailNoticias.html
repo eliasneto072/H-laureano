@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% load static %} {% block titulo %} Hospital Napoleão
+Laureano - {{detailNoticia.Titulo}} {% endblock titulo %} {% block body %}
+
+<div class="navegacao">
+  <ul class="row-j-start">
+    <li>
+      <a class="navegacao-link" href="{% url 'home' %}">
+        Início
+        <i class="uil uil-angle-double-right"></i>
+      </a>
+    </li>
+    <li>
+      <a class="navegacao-link" href="{% url 'noticias' %}">
+        Notícias <i class="uil uil-angle-double-right"></i
+      ></a>
+    </li>
+    <li>
+      <a
+        class="navegacao-link link-titulo"
+        href="{% url 'detail-noticias' detailNoticia.id %}"
+      >
+        {{detailNoticia.Titulo}}
+      </a>
+    </li>
+  </ul>
+</div>
+
+<h1 class="pags-title">Notícias</h1>
+
+<section class="pags-section column-center">
+  <h1 class="news-main-title">{{detailNoticia.Titulo}}</h1>
+  <img src="/image/{{ detailNoticia.Imagem }}" class="news-main-image" />
+  <p class="news-text">{{detailNoticia.Corpo}}</p>
+</section>
+{% endblock body %}

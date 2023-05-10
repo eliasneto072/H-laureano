@@ -1,0 +1,38 @@
+{% extends 'base.html' %} {% load static %} {% block titulo %} Hospital Napoleão
+Laureano - Convênios {% endblock titulo %} {% block body %}
+<div class="navegacao">
+  <ul class="row-j-start">
+    <li>
+      <a class="navegacao-link" href="{% url 'home' %}">
+        Início
+        <i class="uil uil-angle-double-right"></i>
+      </a>
+    </li>
+    <li>
+      <a class="navegacao-link" href="{% url 'convenio' %}"> Convênios </a>
+    </li>
+  </ul>
+</div>
+
+<h1 class="pags-title">Convênios</h1>
+
+<section class="pags-section column-center">
+  <h2 class="pags-h2 row-center">
+    O Hospital trabalha com o SUS e os seguintes planos de saúde:
+  </h2>
+
+  <ul class="pags-images-wrapper row-center">
+    {% for item in convenio %}
+    <li class="pags-image-bg-lightgrey row-center">
+      <div class="pags-image-bg-white row-center">
+        <img
+          src="/image/{{ item.FotoCovenio }}"
+          alt="{{item.NomeConvenio}}"
+          class="pags-image row-center"
+        />
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endblock body %}

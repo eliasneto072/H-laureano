@@ -1,0 +1,168 @@
+{% extends "base.html" %} {% load static %} {% block titulo %}Hospital Napoleão
+Laureano - Trabalhe Conosco{% endblock titulo %} {% block body %}
+
+<div class="navegacao">
+  <ul class="row-j-start">
+    <li>
+      <a class="navegacao-link" href="{% url 'home' %}">
+        Início
+        <i class="uil uil-angle-double-right"></i>
+      </a>
+    </li>
+    <li>
+      <a class="navegacao-link">
+        Fale Conosco
+        <i class="uil uil-angle-double-right"></i>
+      </a>
+    </li>
+    <li>
+      <a class="navegacao-link" href="{% url 'trabalheConosco' %}">
+        Trabalhe Conosco
+      </a>
+    </li>
+  </ul>
+</div>
+
+<h1 class="pags-title">Trabalhe Conosco</h1>
+
+<section class="pags-section column-center">
+  <h2 class="pags-h2 row-center">Faça parte do Laureano</h2>
+
+  <form id="formulario" class="column-j-start" action="/action_page.php">
+    <label class="label" for="form-nome">Seu nome*</label>
+    <input
+      type="text"
+      id="form-nome"
+      name="firstname"
+      placeholder="Nome completo"
+      required
+    />
+
+    <div class="row-j-start form-double-wrapper">
+      <div class="column-j-start form-double">
+        <label class="label" for="form-email">Seu email*</label>
+        <input
+          type="email"
+          id="form-email"
+          name="lastname"
+          placeholder="Email"
+          required
+        />
+      </div>
+
+      <div class="column-j-start form-double">
+        <label class="label" for="form-telefone">Seu telefone*</label>
+        <input
+          type="text"
+          id="form-telefone"
+          name="lastname"
+          placeholder="Telefone"
+          pattern="\([0-9]{2}\)[\s][0-9]{5}-[0-9]{4}"
+          required
+        />
+      </div>
+    </div>
+
+    <label class="label">Minha função*</label>
+    <div class="row-j-start radio-wrapper-bottom">
+      <div class="radio-container">
+        <input
+          type="radio"
+          name="minha-funcao"
+          value="medico"
+          id="funcao-medico"
+          checked="checked"
+        />
+        <label class="checked row-center label label-radio" for="funcao-medico"
+          >Médico(a)</label
+        >
+      </div>
+
+      <div class="radio-container">
+        <input
+          type="radio"
+          name="minha-funcao"
+          value="enfermeiro"
+          id="funcao-enfermeiro"
+        />
+        <label
+          class="checked row-center label label-radio"
+          for="funcao-enfermeiro"
+          >Enfermeiro(a)</label
+        >
+      </div>
+
+      <div class="radio-container">
+        <input
+          type="radio"
+          name="minha-funcao"
+          value="atendente"
+          id="funcao-atendente"
+        />
+        <label
+          class="checked row-center label label-radio"
+          for="funcao-atendente"
+          >Atendente</label
+        >
+      </div>
+
+      <div class="radio-container">
+        <input
+          type="radio"
+          name="minha-funcao"
+          value="voluntario"
+          id="funcao-voluntario"
+        />
+        <label
+          class="checked row-center label label-radio"
+          for="funcao-voluntario"
+          >Voluntário(a)</label
+        >
+      </div>
+
+      <div class="radio-container row-center">
+        <input
+          type="radio"
+          name="minha-funcao"
+          value="outros"
+          id="funcao-outros"
+        />
+        <label class="checked row-center label label-radio" for="funcao-outros"
+          >Outros</label
+        >
+        <input
+          type="text"
+          id="funcao-informe"
+          name="minha-funcao"
+          placeholder="Informe sua função"
+          required
+          disabled
+        />
+      </div>
+    </div>
+
+    <label class="label" for="form-area">Área Pretendida*</label>
+    <select id="form-area" name="form-area" required>
+      <option value="">Selecione uma área</option>
+      {% for esp in especialidade %}
+      <option value="{{ esp.Especialidade }}">{{ esp.Especialidade }}</option>
+      {% endfor %}
+    </select>
+
+    <div class="fileUpload column-j-start">
+      <span class="label">Currículo*</span>
+      <input type="file" class="upload" required />
+    </div>
+
+    <label class="label" for="form-mensagem">Mensagem</label>
+    <textarea placeholder="Observações, anotações, etc"></textarea>
+
+    <input type="submit" value="Enviar" />
+  </form>
+</section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+<script type="text/javascript" src='{% static "/scripts/trabalheConosco.js" %}'></script>
+<script type="text/javascript" src='{% static "/scripts/forms.js" %}'></script>
+{% endblock body %}

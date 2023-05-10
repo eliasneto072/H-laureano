@@ -1,0 +1,21 @@
+{% extends 'base.html' %}{% load static %}
+{% block titulo %} HOSPITAL LAUREANO - GUIA MÉDICO{%endblock titulo %} 
+
+{% block body %}
+
+<h1>TESTE - GUIA MÉDICO</h1>
+
+{% for item in medico %}
+
+<ul>
+    <li>Nome: {{ item.Nome }}.
+    Especialização: {{ item.Especialidade }}
+    </li>
+</ul>
+
+{% endfor %}
+
+
+
+<a class="mx-auto my-0 text-uppercase text-amarelo mx-auto mt-2 mb-5 style=" href="{% url 'home' %}">Back</a>
+{% endblock body %}

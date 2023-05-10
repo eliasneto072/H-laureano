@@ -1,0 +1,66 @@
+{% extends "base.html" %} {% load static %} {% block titulo %}Hospital Napoleão
+Laureano - Eventos do Hospital{% endblock titulo %} {% block body %}
+
+<div class="navegacao">
+  <ul class="row-j-start">
+    <li>
+      <a class="navegacao-link" href="{% url 'home' %}">
+        Início
+        <i class="uil uil-angle-double-right"></i>
+      </a>
+    </li>
+    <li>
+      <a class="navegacao-link">
+        Eventos
+        <i class="uil uil-angle-double-right"></i>
+      </a>
+    </li>
+    <li>
+      <a class="navegacao-link" href="{% url 'eventos' %}">
+        Eventos do Hospital
+      </a>
+    </li>
+  </ul>
+</div>
+
+<h1 class="pags-title">Eventos do Hospital</h1>
+
+<section class="pags-section column-center">
+  <ul class="events-wrapper">
+    {% for item in eventos %}
+    <li class="event">
+      <h3 class="event-title">{{item.Titulo}}</h3>
+      <div class="event-period row-j-start">
+        <div class="event-date-start"> {{item.DataInicio}} </div>
+        {% if item.DataFim %}
+        <div class="event-date-end">{{item.DataFim}}</div>
+        {% endif %}
+        
+        {% if item.HoraInicio and item.HoraFim %}
+        <div class="event-time--start-end">({{item.HoraInicio}} às {{item.HoraFim}})</div>
+        {% elif item.HoraInicio %}
+        <div class="event-time--start">({{item.HoraInicio}})</div>
+        {% endif %}
+
+      </div>
+      <div class="event-info">{{item.Informacoes}}</div>
+      <div class="dividing-line dividing-line--list"></div>
+    </li>
+    {% endfor %}
+  </ul>
+
+
+  <div class="pagination row-center">
+    <a href="javascript:firstPage()" id="pag-first" href="#">Início &laquo;</a>
+    <a href="javascript:prevPage()" id="pag-prev" href="#">&laquo;</a>
+    <span id="num-page-wrapper">
+    </span>
+    <a href="javascript:nextPage()" id="pag-next" href="#">&raquo;</a>
+    <a href="javascript:lastPage()" id="pag-last" href="#">Fim &raquo;</a>
+  </div>
+</section>
+
+<script type="text/javascript" src='{% static "/scripts/eventos.js" %}'></script>
+<script type="text/javascript" src='{% static "/scripts/paginationEvents.js" %}'></script>
+
+{% endblock body %}

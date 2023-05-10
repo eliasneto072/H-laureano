@@ -1,0 +1,72 @@
+{% extends 'base.html' %} {% load static %} {% block titulo %} Hospital Napoleão
+Laureano - História do Hospital {% endblock titulo %} {% block body %}
+
+<div class="navegacao">
+  <ul class="row-j-start">
+    <li>
+      <a class="navegacao-link" href="{% url 'home' %}">
+        Início
+        <i class="uil uil-angle-double-right"></i>
+      </a>
+    </li>
+    <li>
+      <a class="navegacao-link">
+        Quem Somos
+        <i class="uil uil-angle-double-right"></i>
+      </a>
+    </li>
+    <li>
+      <a class="navegacao-link">
+        Hospital Laureano
+        <i class="uil uil-angle-double-right"></i>
+      </a>
+    </li>
+    <li>
+      <a class="navegacao-link" href="{% url 'historiaHospital' %}">
+        História
+      </a>
+    </li>
+  </ul>
+</div>
+
+<h1 class="pags-title">Hospital Laureano</h1>
+
+<section class="pags-section column-center">
+  <h2 class="pags-h2 row-center">História</h2>
+  <div class="pag-wrapper">
+    <div class="pags-side-image-wrapper column-center">
+      <img
+        src="{% static '/images/dr-napoleao-laureano.jpg' %}"
+        alt="medico Napoleão Laureano"
+        class="pags-side-image--image"
+      />
+      <span class="pags-side-image--subtext"
+        >O médico Napoleão Laureano, idealizador do Hospital que imortaliza seu
+        nome, amenizando a dor dos que são acometidos pelo câncer.</span
+      >
+    </div>
+
+    <div class="pags-text">
+      {% for item in historia|slice:":1" %}
+      {{ item.Conteudo }}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<div class="other-pags-links">
+  <ul class="row-j-start">
+    <li>
+      <a class="other-pags-link" href="{% url 'historiaFundacao' %}">
+        Fundação Laureano
+      </a>
+    </li>
+    <li>
+      <a class="other-pags-link" href="{% url 'nossaMissao' %}">
+        Nossa Missão
+      </a>
+    </li>
+  </ul>
+</div>
+
+{% endblock body %}

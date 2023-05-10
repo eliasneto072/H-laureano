@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% load static %} {% block titulo %} Hospital Napoleão
+Laureano - Parceiros {% endblock titulo %} {% block body %}
+
+<div class="navegacao">
+  <ul class="row-j-start">
+    <li>
+      <a class="navegacao-link" href="{% url 'home' %}">
+        Início
+        <i class="uil uil-angle-double-right"></i>
+      </a>
+    </li>
+    <li>
+      <a class="navegacao-link" href="{% url 'parceiros' %}"> Parceiros </a>
+    </li>
+  </ul>
+</div>
+
+<h1 class="pags-title">Parceiros</h1>
+
+<section class="pags-section column-center">
+  <h2 class="pags-h2 row-center">O Hospital possui os seguintes parceiros:</h2>
+
+  <ul class="pags-images-wrapper row-center">
+    {% for item in parceiro %}
+    <li class="pags-image-bg-lightgrey row-center">
+      <div class="pags-image-bg-white row-center">
+        <img src="/image/{{ item.FotoParceiro }}"
+        alt="{{ item.NomeParceiro }}"
+        class="pags-image" />
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endblock body %}

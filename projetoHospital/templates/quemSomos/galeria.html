@@ -1,0 +1,60 @@
+{% extends "base.html" %} {% load static %} {% block titulo %}Hospital Napoleão
+Laureano - Galeria de Fotos{% endblock titulo %} {% block body %}
+
+<div class="navegacao">
+  <ul class="row-j-start">
+    <li>
+      <a class="navegacao-link" href="{% url 'home' %}">
+        Início
+        <i class="uil uil-angle-double-right"></i>
+      </a>
+    </li>
+    <li>
+      <a class="navegacao-link" href="{% url 'galeria' %}"> Galeria </a>
+    </li>
+  </ul>
+</div>
+
+<h1 class="pags-title">Galeria de Fotos</h1>
+
+<section class="pags-section">
+  <div class="galery-wrapper">
+    {% for categ in categoria %}
+    <div class="images-category" id="{{categ.Categoria}}">
+      {% for gal in galeria %} {% if categ.Categoria == gal.Categoria %}
+      <div class="galery-image-wrapper row-center">
+        <img
+          src="/image/{{ gal.Foto }}"
+          class="galery-image"
+          alt="{{ gal.Titulo }}"
+          categoria="{{ gal.Categoria }}"
+        />
+      </div>
+      {% endif %} {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="pagination row-center">
+    <a href="javascript:firstPage()" id="pag-first" href="#">Início &laquo;</a>
+    <a href="javascript:prevPage()" id="pag-prev" href="#">&laquo;</a>
+    <span id="num-page-wrapper">
+    </span>
+    <a href="javascript:nextPage()" id="pag-next" href="#">&raquo;</a>
+    <a href="javascript:lastPage()" id="pag-last" href="#">Fim &raquo;</a>
+  </div>
+</section>
+
+<div class="modal column-center">
+  <span class="close close-galery">&times;</span>
+  <div class="modal-wrapper row-center">
+    <a class="modal-previous">&#10094;</a>
+    <img class="modal-image" />
+    <a class="modal-next">&#10095;</a>
+  </div>
+  <div class="modal-title"></div>
+</div>
+
+<script type="text/javascript" src='{% static "/scripts/galeria.js" %}'></script>
+<script type="text/javascript" src='{% static "/scripts/paginationGalery.js" %}'></script>
+{% endblock body %}

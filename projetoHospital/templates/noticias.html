@@ -1,0 +1,74 @@
+{% extends "base.html" %} {% load static %} {% block titulo %}Hospital Napoleão
+Laureano - Notícias{% endblock titulo %} {% block body %}
+
+<div class="navegacao">
+  <ul class="row-j-start">
+    <li>
+      <a class="navegacao-link" href="{% url 'home' %}">
+        Início
+        <i class="uil uil-angle-double-right"></i>
+      </a>
+    </li>
+    <li>
+      <a class="navegacao-link" href="{% url 'noticias' %}"> Notícias </a>
+    </li>
+  </ul>
+</div>
+
+<h1 class="pags-title">Notícias</h1>
+
+<section class="pags-section">
+  {% with noticia|first as principal %} {% for value in noticia %} 
+  {% if forloop.counter == 1 %}
+  <div
+    class="news-pag__main column-center"
+    onclick="sendTo('{% url 'detail-noticias' principal.id %}')"
+  >
+    <img
+      src="/image/{{ principal.Imagem }}"
+      alt="{{ principal.Titulo }}"
+      class="news-pag__main-image"
+    />
+    <span class="news-pag__main-title"> {{ principal.Titulo }} </span>
+    <span class="news-pag__main-date">{{ principal.Data }}</span>
+  </div>
+  {% endif %} {% endfor %}{% endwith %}
+
+  <ul class="news-pag__news-images-wrapper">
+    {% for item in noticia %} {% if forloop.counter != 1 %}
+    <li class="news-pag__news-image-wrapper">
+      <img
+        class="news-pag__news-image"
+        src="/image/{{ item.Imagem }}"
+        onclick="sendTo('{% url 'detail-noticias' item.id %}')"
+      />
+      <span
+        class="news-pag__news-title"
+        onclick="sendTo('{% url 'detail-noticias' item.id %}')"
+        >{{ item.Titulo }}</span
+      >
+      <span class="news-pag__news-date">{{ item.Data }}</span>
+      <span class="news-pag__news-preview">{{ item.Corpo }}</span>
+      <button
+        class="news--content--button"
+        onclick="sendTo('{% url 'detail-noticias' item.id %}')"
+      >
+        Leia mais
+      </button>
+    </li>
+    {% endif %} {% endfor %}
+  </ul>
+
+  <div class="pagination row-center">
+    <a href="javascript:firstPage()" id="pag-first" href="#">Início &laquo;</a>
+    <a href="javascript:prevPage()" id="pag-prev" href="#">&laquo;</a>
+    <span id="num-page-wrapper"> </span>
+    <a href="javascript:nextPage()" id="pag-next" href="#">&raquo;</a>
+    <a href="javascript:lastPage()" id="pag-last" href="#">Fim &raquo;</a>
+  </div>
+</section>
+
+
+
+<script type="text/javascript" src='{% static "/scripts/paginationNews.js" %}'></script>
+{% endblock body %}

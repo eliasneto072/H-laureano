@@ -1,0 +1,13 @@
+{% extends "base.html" %} {% load static %} {% block css %}
+<link rel="stylesheet" href="{% static 'css/principal.css' %}" />
+{% endblock css %} {% block title %} HOSPITAL LAUREANO - ADMIN {% endblock title%} 
+{% block body %}
+
+<h1>TESTE - ADMIN</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    <h2>Tem certeza que deseja deletar o médico: {{ medico.Nome }} ?</h2>
+    <button type="submit">Confirmar</button>
+</form>
+{% endblock body %}

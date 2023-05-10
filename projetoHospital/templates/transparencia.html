@@ -1,0 +1,43 @@
+{% extends 'base.html' %} {% load static %} {% block titulo %}Hospital Napoleão
+Laureano - Tranparência {%endblock titulo %} {% block body %}
+
+<div class="navegacao">
+  <ul class="row-j-start">
+    <li>
+      <a class="navegacao-link" href="{% url 'home' %}">
+        Início
+        <i class="uil uil-angle-double-right"></i>
+      </a>
+    </li>
+    <li>
+      <a class="navegacao-link" href="{% url 'transparencia' %}">
+        Transparência
+      </a>
+    </li>
+  </ul>
+</div>
+
+<h1 class="pags-title">Transparência</h1>
+<section class="pags-section column-center">
+  {% for cat in categoria %}
+  <div class="list-header">
+    <img src="{% static '/images/lista_icon.png' %}" class="list-img" />
+    <h3 class="list-title">{{cat.CategoriaTransparencia}}</h3>
+  </div>
+  <ul class="list-wrapper">
+     {% for item in transparencia %} 
+      {%if cat.CategoriaTransparencia == item.CategoriaTransparencia%}
+        <li class="list-item row-j-start">
+          {%if item.DataTransparencia %} {{ item.DataTransparencia}} - {% endif %} 
+          <a href="{{item.PdfTransparencia.url}}" class="edital-link" target=”_blank”>{{item.NomeTransparencia}}</a>
+        </li>
+       {% endif %} 
+    {% endfor %} 
+  </ul>
+  <div class="dividing-line dividing-line--list"></div>
+  {% endfor %}
+</section>
+
+<script type="text/javascript" src='{% static "/scripts/guia.js" %}'></script>
+
+{% endblock body %}

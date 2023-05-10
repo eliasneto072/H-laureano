@@ -1,0 +1,882 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alatsi&family=Anton&family=Atkinson+Hyperlegible:wght@400;700&family=Montserrat&display=block"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    {% endblock css %}
+
+    <title>{% block titulo %} {% endblock titulo %}</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{% static '/images/favicon.ico' %}"
+    />
+  </head>
+  <body>
+    <div class="load">
+      <div class="spin-container">
+        <div class="spin" id="first_layer"></div>
+        <div class="spin" id="second_layer"></div>
+        <div class="spin" id="third_layer"></div>
+        <div class="spin" id="fourth_layer"></div>
+        <span id="text">LOADING...</span>
+      </div>
+    </div>
+
+    <div class="wrapper">
+      <header class="header">
+        <div class="header__wrapper">
+          <div class="header__menu column-center">
+            <div class="header__menu--menu">
+              <img
+                class="header__menu--menu-image"
+                src="{% static '/images/menu_icon.png' %}"
+              />
+            </div>
+            <div class="header__menu--title">Menu</div>
+          </div>
+          <div class="header__menu--devices">
+            <img
+              class="header__small-viewport"
+              src="{% static '/images/menu_icon.png' %}"
+            />
+          </div>
+          <div
+            class="header__title row-center"
+            onclick="sendTo('{% url 'home'%}');"
+          >
+            <img
+              class="header__title--logo"
+              src="{% static '/images/logo_icon.png' %}"
+              alt="Logo do Hospital Napoleão Laureano"
+            />
+            <h1 class="header__title--title">Hospital Napoleão Laureano</h1>
+            <div class="header__title-devices">
+              <h1 class="header__title-small-viewport">
+                Hospital Napoleão Laureano
+              </h1>
+            </div>
+            <img
+              class="header__title--logo-image"
+              src="{% static '/images/logo_hospital_cabecalho.png' %}"
+              alt="Logo do Hospital Napoleão Laureano"
+            />
+          </div>
+          <div></div>
+        </div>
+      </header>
+
+      <div class="menu">
+        <ul class="menu-options noShow">
+          <li
+            class="menu-options--department row-j-start"
+            onclick="sendTo('{% url 'home'%}');"
+          >
+            <div class="menu-options--department-wrapper row-j-start">
+              <img
+                class="menu-options--department--icon"
+                src="{% static '/images/home_icon.png' %}"
+              />
+              <img
+                class="menu-options--department--icon--hover"
+                src="{% static '/images/hover_home_icon.png' %}"
+              />
+              <span class="menu-options--department--span">Home</span>
+            </div>
+          </li>
+          <li
+            class="menu-options--department row-j-start"
+            onclick="sendTo('#');"
+          >
+            <div class="menu-options--department-wrapper row-j-start">
+              <img
+                class="menu-options--department--icon"
+                src="{% static '/images/paciente_icon.png' %}"
+              />
+              <img
+                class="menu-options--department--icon--hover"
+                src="{% static '/images/hover_paciente_icon.png' %}"
+              />
+              <span class="menu-options--department--span"
+                >Área do Paciente</span
+              >
+            </div>
+          </li>
+          <li class="menu-options--department option--category row-j-start">
+            <div class="menu-options--department-wrapper row-j-start">
+              <img
+                class="menu-options--department--icon"
+                src="{% static '/images/somos_icon.png' %}"
+              />
+              <img
+                class="menu-options--department--icon--hover"
+                src="{% static '/images/hover_somos_icon.png' %}"
+              />
+              <span class="menu-options--department--span">Quem Somos</span>
+              <img
+                class="menu-options--department--icon--next"
+                src="{% static '/images/proximo_icon.png' %}"
+              />
+              <img
+                class="menu-options--department--icon--next-hover"
+                src="{% static '/images/hover_proximo_icon.png' %}"
+              />
+            </div>
+            <div class="categories noShow">
+              <ul class="categories-options">
+                <li
+                  class="categories-options--category option--subcategory row-j-start"
+                >
+                  <span class="categories-options--category-link"
+                    >Hospital Laureano</span
+                  >
+                  <img
+                    class="menu-options--department--icon--next"
+                    src="{% static '/images/proximo_icon.png' %}"
+                  />
+                  <img
+                    class="menu-options--department--icon--next-hover"
+                    src="{% static '/images/hover_proximo_icon.png' %}"
+                  />
+                  <div class="subcategories noShow">
+                    <ul class="subcategories-options">
+                      <li
+                        class="subcategories-options--subcategory row-j-start"
+                        onclick="sendTo('{% url 'historiaHospital' %}');"
+                      >
+                        <span class="subcategories-options--subcategory-link"
+                          >História</span
+                        >
+                      </li>
+                      <li
+                        class="subcategories-options--subcategory"
+                        onclick="sendTo('{% url 'diretoriaHospital' %}');"
+                      >
+                        <span class="subcategories-options--subcategory-link"
+                          >Diretoria</span
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li
+                  class="categories-options--category option--subcategory row-j-start"
+                >
+                  <span class="categories-options--category-link"
+                    >Fundação Laureano</span
+                  >
+                  <img
+                    class="menu-options--department--icon--next"
+                    src="{% static '/images/proximo_icon.png' %}"
+                  />
+                  <img
+                    class="menu-options--department--icon--next-hover"
+                    src="{% static '/images/hover_proximo_icon.png' %}"
+                  />
+                  <div class="subcategories noShow">
+                    <ul class="subcategories-options">
+                      <li
+                        class="subcategories-options--subcategory"
+                        onclick="sendTo('{% url 'historiaFundacao' %}');"
+                      >
+                        <span class="subcategories-options--subcategory-link"
+                          >História</span
+                        >
+                      </li>
+                      <li
+                        class="subcategories-options--subcategory"
+                        onclick="sendTo('{% url 'diretoriaFundacao' %}');"
+                      >
+                        <span class="subcategories-options--subcategory-link"
+                          >Diretoria e Conselho</span
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li
+                  class="categories-options--category"
+                  onclick="sendTo('{% url 'nossaMissao' %}')"
+                >
+                  <span class="categories-options--category-link"
+                    >Nossa Missão</span
+                  >
+                </li>
+                <li
+                  class="categories-options--category"
+                  onclick="sendTo('{% url 'galeria' %}')"
+                >
+                  <span class="categories-options--category-link">Galeria</span>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="menu-options--department option--category row-j-start">
+            <div class="menu-options--department-wrapper row-j-start">
+              <img
+                class="menu-options--department--icon"
+                src="{% static '/images/servicos_icon.png' %}"
+              />
+              <img
+                class="menu-options--department--icon--hover"
+                src="{% static '/images/hover_servicos_icon.png' %}"
+              />
+              <span class="menu-options--department--span">Servicos</span>
+              <img
+                class="menu-options--department--icon--next"
+                src="{% static '/images/proximo_icon.png' %}"
+              />
+              <img
+                class="menu-options--department--icon--next-hover"
+                src="{% static '/images/hover_proximo_icon.png' %}"
+              />
+            </div>
+            <div class="categories noShow">
+              <ul class="categories-options">
+                <li class="categories-options--category" onclick="sendTo('#');">
+                  <span class="categories-options--category-link"
+                    >Resultado de Exames</span
+                  >
+                </li>
+                <li
+                  class="categories-options--category option--subcategory"
+                  onclick="sendTo('#');"
+                >
+                  <span class="categories-options--category-link"
+                    >Consultas</span
+                  >
+                </li>
+                <li
+                  class="categories-options--category option--subcategory"
+                  onclick="sendTo('#');"
+                >
+                  <span class="categories-options--category-link"
+                    >Telemedicina</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li
+            class="menu-options--department row-j-start"
+            onclick="sendTo('{% url 'parceiros' %}');"
+          >
+            <div class="menu-options--department-wrapper row-j-start">
+              <img
+                class="menu-options--department--icon"
+                src="{% static '/images/parceiros_icon.png' %}"
+              />
+              <img
+                class="menu-options--department--icon--hover"
+                src="{% static '/images/hover_parceiros_icon.png' %}"
+              />
+              <span class="menu-options--department--span">Parceiros</span>
+            </div>
+          </li>
+          <li class="menu-options--department option--category row-j-start">
+            <div class="menu-options--department-wrapper row-j-start">
+              <img
+                class="menu-options--department--icon"
+                src="{% static '/images/eventos_icon.png' %}"
+              />
+              <img
+                class="menu-options--department--icon--hover"
+                src="{% static '/images/hover_eventos_icon.png' %}"
+              />
+              <span class="menu-options--department--span">Eventos</span>
+              <img
+                class="menu-options--department--icon--next"
+                src="{% static '/images/proximo_icon.png' %}"
+              />
+              <img
+                class="menu-options--department--icon--next-hover"
+                src="{% static '/images/hover_proximo_icon.png' %}"
+              />
+            </div>
+            <div class="categories noShow">
+              <ul class="categories-options">
+                <li
+                  class="categories-options--category"
+                  onclick="sendToNewWindow('https://cemak.org/');"
+                >
+                  <span class="categories-options--category-link">Cemak</span>
+                </li>
+                <li
+                  class="categories-options--category option--subcategory"
+                  onclick="sendTo('{% url 'eventos' %}');"
+                >
+                  <span class="categories-options--category-link"
+                    >Do Hospital</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li
+            class="menu-options--department row-j-start"
+            onclick="sendTo('{% url 'noticias' %}');"
+          >
+            <div class="menu-options--department-wrapper row-j-start">
+              <img
+                class="menu-options--department--icon"
+                src="{% static '/images/noticias_icon.png' %}"
+              />
+              <img
+                class="menu-options--department--icon--hover"
+                src="{% static '/images/hover_noticias_icon.png' %}"
+              />
+              <span class="menu-options--department--span">Notícias</span>
+            </div>
+          </li>
+          <li
+            class="menu-options--department row-j-start"
+            onclick="sendTo('{% url 'transparencia' %}');"
+          >
+            <div class="menu-options--department-wrapper row-j-start">
+              <img
+                class="menu-options--department--icon"
+                src="{% static '/images/transparencia_icon.png' %}"
+              />
+              <img
+                class="menu-options--department--icon--hover"
+                src="{% static '/images/hover_transparencia_icon.png' %}"
+              />
+              <span class="menu-options--department--span">Transparência</span>
+            </div>
+          </li>
+          <li class="menu-options--department option--category row-j-start">
+            <div class="menu-options--department-wrapper row-j-start">
+              <img
+                class="menu-options--department--icon"
+                src="{% static '/images/fale_icon.png' %}"
+              />
+              <img
+                class="menu-options--department--icon--hover"
+                src="{% static '/images/hover_fale_icon.png' %}"
+              />
+              <span class="menu-options--department--span">Fale Conosco</span>
+              <img
+                class="menu-options--department--icon--next"
+                src="{% static '/images/proximo_icon.png' %}"
+              />
+              <img
+                class="menu-options--department--icon--next-hover"
+                src="{% static '/images/hover_proximo_icon.png' %}"
+              />
+            </div>
+            <div class="categories noShow last">
+              <ul class="categories-options">
+                <li
+                  class="categories-options--category"
+                  onclick="sendTo('{% url 'trabalheConosco' %}')"
+                >
+                  <span class="categories-options--category-link"
+                    >Trabalhe Conosco</span
+                  >
+                </li>
+                <li
+                  class="categories-options--category"
+                  onclick="sendTo('{% url 'ouvidoria' %}')"
+                >
+                  <span class="categories-options--category-link"
+                    >Ouvidoria</span
+                  >
+                </li>
+                <li
+                  class="categories-options--category"
+                  onclick="sendTo('{% url 'pesquisaSatisfacao' %}')"
+                >
+                  <span class="categories-options--category-link"
+                    >Pesquisa de Satisfação</span
+                  >
+                </li>
+                <li
+                  class="categories-options--category"
+                  onclick="sendTo('{% url 'sejaResidente' %}')"
+                >
+                  <span class="categories-options--category-link"
+                    >Seja um Residente Laureano</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="menu menu-device">
+        <div class="modal-device noShow"></div>
+        <ul class="menu-device-options noShow">
+          <li
+            id="fechar-menu-device"
+            class="menu-options--department device-department row-j-start"
+          >
+            <div class="menu-options--department-wrapper row-j-start">
+              <img
+                class="menu-options--department--icon"
+                src="{% static '/images/fechar_icon.png' %}"
+              />
+              <span class="menu-options--department--span">Fechar</span>
+            </div>
+          </li>
+
+          <li
+            class="menu-options--department device-department row-j-start"
+            onclick="sendTo('{% url 'home'%}');"
+          >
+            <div class="menu-options--department-wrapper row-j-start">
+              <img
+                class="menu-options--department--icon"
+                src="{% static '/images/home_icon.png' %}"
+              />
+              <span class="menu-options--department--span">Home</span>
+            </div>
+          </li>
+
+          <li
+            class="menu-options--department device-department row-j-start"
+            onclick="sendTo('#');"
+          >
+            <div class="menu-options--department-wrapper row-j-start">
+              <img
+                class="menu-options--department--icon"
+                src="{% static '/images/paciente_icon.png' %}"
+              />
+              <span class="menu-options--department--span"
+                >Área do Paciente</span
+              >
+            </div>
+          </li>
+
+          <li
+            class="menu-options--department device-department option--category option--category-device row-j-start"
+          >
+            <div class="menu-options--department-wrapper row-j-start">
+              <img
+                class="menu-options--department--icon"
+                src="{% static '/images/somos_icon.png' %}"
+              />
+              <span class="menu-options--department--span">Quem Somos</span>
+              <img
+                class="menu-options--department--icon--next"
+                src="{% static '/images/proximo_icon.png' %}"
+              />
+            </div>
+          </li>
+
+          <div class="categories device-categories noShow">
+            <ul class="categories-options">
+              <li
+                class="categories-options--category voltar-menu-device-category"
+              >
+                <span class="categories-options--category-link">Voltar</span>
+              </li>
+
+              <li
+                class="categories-options--category option--subcategory option--subcategory-device row-j-start"
+              >
+                <span class="categories-options--category-link"
+                  >Hospital Laureano</span
+                >
+                <img
+                  class="menu-options--department--icon--next"
+                  src="{% static '/images/proximo_icon.png' %}"
+                />
+              </li>
+
+              <li
+                class="categories-options--category option--subcategory option--subcategory-device row-j-start"
+              >
+                <span class="categories-options--category-link"
+                  >Fundação Laureano</span
+                >
+                <img
+                  class="menu-options--department--icon--next"
+                  src="{% static '/images/proximo_icon.png' %}"
+                />
+              </li>
+
+              <li
+                class="categories-options--category"
+                onclick="sendTo('{% url 'nossaMissao' %}')"
+              >
+                <span class="categories-options--category-link"
+                  >Nossa Missão</span
+                >
+              </li>
+
+              <li
+                class="categories-options--category"
+                onclick="sendTo('{% url 'galeria' %}')"
+              >
+                <span class="categories-options--category-link">Galeria</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="subcategories device-subcategories noShow">
+            <ul class="subcategories-options">
+              <li
+                class="subcategories-options--subcategory row-j-start voltar-menu-device-subcategory"
+              >
+                <span class="subcategories-options--subcategory-link"
+                  >Voltar</span
+                >
+              </li>
+              <li
+                class="subcategories-options--subcategory row-j-start"
+                onclick="sendTo('{% url 'historiaHospital' %}');"
+              >
+                <span class="subcategories-options--subcategory-link"
+                  >História</span
+                >
+              </li>
+              <li
+                class="subcategories-options--subcategory"
+                onclick="sendTo('{% url 'diretoriaHospital' %}');"
+              >
+                <span class="subcategories-options--subcategory-link"
+                  >Diretoria</span
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="subcategories device-subcategories noShow">
+            <ul class="subcategories-options">
+              <li
+                class="subcategories-options--subcategory row-j-start voltar-menu-device-subcategory"
+              >
+                <span class="subcategories-options--subcategory-link"
+                  >Voltar</span
+                >
+              </li>
+              <li
+                class="subcategories-options--subcategory"
+                onclick="sendTo('{% url 'historiaFundacao' %}');"
+              >
+                <span class="subcategories-options--subcategory-link"
+                  >História</span
+                >
+              </li>
+              <li
+                class="subcategories-options--subcategory"
+                onclick="sendTo('{% url 'diretoriaFundacao' %}');"
+              >
+                <span class="subcategories-options--subcategory-link"
+                  >Diretoria e Conselho</span
+                >
+              </li>
+            </ul>
+          </div>
+
+          <li
+            class="menu-options--department device-department option--category option--category-device row-j-start"
+          >
+            <div class="menu-options--department-wrapper row-j-start">
+              <img
+                class="menu-options--department--icon"
+                src="{% static '/images/servicos_icon.png' %}"
+              />
+              <span class="menu-options--department--span">Servicos</span>
+              <img
+                class="menu-options--department--icon--next"
+                src="{% static '/images/proximo_icon.png' %}"
+              />
+            </div>
+          </li>
+
+          <div class="categories device-categories noShow">
+            <ul class="categories-options">
+              <li
+                class="categories-options--category voltar-menu-device-category"
+              >
+                <span class="categories-options--category-link">Voltar</span>
+              </li>
+              <li class="categories-options--category" onclick="sendTo('#');">
+                <span class="categories-options--category-link"
+                  >Resultado de Exames</span
+                >
+              </li>
+              <li
+                class="categories-options--category option--subcategory"
+                onclick="sendTo('#');"
+              >
+                <span class="categories-options--category-link">Consultas</span>
+              </li>
+              <li
+                class="categories-options--category option--subcategory"
+                onclick="sendTo('#');"
+              >
+                <span class="categories-options--category-link"
+                  >Telemedicina</span
+                >
+              </li>
+            </ul>
+          </div>
+
+          <li
+            class="menu-options--department device-department row-j-start"
+            onclick="sendTo('{% url 'parceiros' %}');"
+          >
+            <div class="menu-options--department-wrapper row-j-start">
+              <img
+                class="menu-options--department--icon"
+                src="{% static '/images/parceiros_icon.png' %}"
+              />
+              <span class="menu-options--department--span">Parceiros</span>
+            </div>
+          </li>
+
+          <li
+            class="menu-options--department device-department option--category option--category-device row-j-start"
+          >
+            <div class="menu-options--department-wrapper row-j-start">
+              <img
+                class="menu-options--department--icon"
+                src="{% static '/images/eventos_icon.png' %}"
+              />
+              <span class="menu-options--department--span">Eventos</span>
+              <img
+                class="menu-options--department--icon--next"
+                src="{% static '/images/proximo_icon.png' %}"
+              />
+            </div>
+          </li>
+
+          <div class="categories device-categories noShow">
+            <ul class="categories-options">
+              <li
+                class="categories-options--category voltar-menu-device-category"
+              >
+                <span class="categories-options--category-link">Voltar</span>
+              </li>
+              <li
+                class="categories-options--category"
+                onclick="sendToNewWindow('https://cemak.org/');"
+              >
+                <span class="categories-options--category-link">Cemak</span>
+              </li>
+              <li
+                class="categories-options--category option--subcategory"
+                onclick="sendTo('{% url 'eventos' %}');"
+              >
+                <span class="categories-options--category-link"
+                  >Do Hospital</span
+                >
+              </li>
+            </ul>
+          </div>
+
+          <li
+            class="menu-options--department device-department row-j-start"
+            onclick="sendTo('{% url 'noticias' %}');"
+          >
+            <div class="menu-options--department-wrapper row-j-start">
+              <img
+                class="menu-options--department--icon"
+                src="{% static '/images/noticias_icon.png' %}"
+              />
+              <span class="menu-options--department--span">Notícias</span>
+            </div>
+          </li>
+
+          <li
+            class="menu-options--department device-department row-j-start"
+            onclick="sendTo('{% url 'transparencia' %}');"
+          >
+            <div class="menu-options--department-wrapper row-j-start">
+              <img
+                class="menu-options--department--icon"
+                src="{% static '/images/transparencia_icon.png' %}"
+              />
+              <span class="menu-options--department--span">Transparência</span>
+            </div>
+          </li>
+
+          <li
+            class="menu-options--department device-department option--category option--category-device row-j-start"
+          >
+            <div class="menu-options--department-wrapper row-j-start">
+              <img
+                class="menu-options--department--icon"
+                src="{% static '/images/fale_icon.png' %}"
+              />
+              <span class="menu-options--department--span">Fale Conosco</span>
+              <img
+                class="menu-options--department--icon--next"
+                src="{% static '/images/proximo_icon.png' %}"
+              />
+            </div>
+          </li>
+
+          <div class="categories device-categories noShow">
+            <ul class="categories-options">
+              <li
+                class="categories-options--category voltar-menu-device-category"
+              >
+                <span class="categories-options--category-link">Voltar</span>
+              </li>
+              <li
+                class="categories-options--category"
+                onclick="sendTo('{% url 'trabalheConosco' %}')"
+              >
+                <span class="categories-options--category-link"
+                  >Trabalhe Conosco</span
+                >
+              </li>
+              <li
+                class="categories-options--category"
+                onclick="sendTo('{% url 'ouvidoria' %}')"
+              >
+                <span class="categories-options--category-link">Ouvidoria</span>
+              </li>
+              <li
+                class="categories-options--category"
+                onclick="sendTo('{% url 'pesquisaSatisfacao' %}')"
+              >
+                <span class="categories-options--category-link"
+                  >Pesquisa de Satisfação</span
+                >
+              </li>
+              <li
+                class="categories-options--category"
+                onclick="sendTo('{% url 'sejaResidente' %}')"
+              >
+                <span class="categories-options--category-link"
+                  >Seja um Residente Laureano</span
+                >
+              </li>
+            </ul>
+          </div>
+        </ul>
+      </div>
+
+      <div
+        class="side-small-menu doacao"
+        onclick="sendTo('{% url 'doacao' %}');"
+      >
+        <img
+          class="side-small-menu--image"
+          src="{% static '/images/doe_icon.png' %}"
+        />
+        <div class="side-small-menu--hover hover--doacao">
+          <span class="side-small-menu--text">Quero Doar!</span>
+        </div>
+      </div>
+
+      <div class="side-small-menu chatbot">
+        <img
+          class="side-small-menu--image"
+          src="{% static '/images/chatbot_icon.png' %}"
+        />
+        <div class="side-small-menu--hover hover--chatbot">
+          <span class="side-small-menu--text">Precisa de Ajuda?</span>
+        </div>
+      </div>
+
+      <div class="main-item">
+        <div class="static-background">
+          <div class="background-masker btn-divide-left"></div>
+        </div>
+
+        <div class="animated-background">
+          <div class="background-masker btn-divide-left"></div>
+        </div>
+      </div>
+
+      {% block body %} {% endblock body %}
+
+      <footer class="footer">
+        <div class="footer__wrapper">
+          <img
+            src="{% static '/images/logo_hospital_rodape.png' %}"
+            alt="Logo Hospital Napoleão Laureano"
+            class="footer__logo"
+            onclick="sendTo('{% url 'home'%}');"
+          />
+          {% for item in rodape|slice:":1" %}
+          <span class="footer__adress"
+            >Telefone: {{ item.Telefone }} {{ item.Rua }}, {{ item.Numero }} -
+            {{ item.Bairro }} CEP: {{ item.CEP }} - {{ item.Cidade }} - {{
+            item.Estado }}
+          </span>
+          {% endfor %}
+          <div class="medias column-center">
+            {% for item in redes|slice:":1" %}
+            <span class="medias--social">Redes sociais</span>
+            <div class="medias--icons row-center">
+              <a
+                href="{{ item.Facebook }}"
+                class="medias--icons__link"
+                target="_blank"
+                ><img
+                  src="{% static '/images/facebook_icon.svg' %}"
+                  alt="Ícone do Facebook"
+                  class="medias--icons__link-icon"
+              /></a>
+              <a
+                href="{{ item.Twitter }}"
+                class="medias--icons__link"
+                target="_blank"
+                ><img
+                  src="{% static '/images/twitter_icon.svg' %}"
+                  alt="Ícone do Twitter"
+                  class="medias--icons__link-icon"
+              /></a>
+              <a
+                href="{{ item.Instagram }}"
+                class="medias--icons__link"
+                target="_blank"
+                ><img
+                  src="{% static '/images/instagram_icon.svg' %}"
+                  alt="Ícone do Instagram"
+                  class="medias--icons__link-icon"
+              /></a>
+              <a
+                href="{{ item.Youtube }}"
+                class="medias--icons__link"
+                target="_blank"
+                ><img
+                  src="{% static '/images/youtube_icon.svg' %}"
+                  alt="Ícone do YouTube"
+                  class="medias--icons__link-icon"
+              /></a>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+
+  <script
+    type="text/javascript"
+    src='{% static "/scripts/header.js" %}'
+  ></script>
+  <script
+    type="text/javascript"
+    src='{% static "/scripts/circularMenu.js" %}'
+  ></script>
+  <script
+    type="text/javascript"
+    src='{% static "/scripts/loading.js" %}'
+  ></script>
+  <script
+    type="text/javascript"
+    src='{% static "/scripts/consoleMessage.js" %}'
+  ></script>
+</html>

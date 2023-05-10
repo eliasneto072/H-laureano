@@ -1,0 +1,94 @@
+{% extends 'base.html' %} {% load static %} {% block titulo %}Hospital Napoleão
+Laureano - Diretoria da Fundação {%endblock titulo %} {% block body %}
+
+<nav class="navegacao">
+  <ul class="row-j-start">
+    <li>
+      <a class="navegacao-link" href="{% url 'home' %}">
+        Início
+        <i class="uil uil-angle-double-right"></i>
+      </a>
+    </li>
+    <li>
+      <a class="navegacao-link">
+        Quem Somos
+        <i class="uil uil-angle-double-right"></i>
+      </a>
+    </li>
+    <li>
+      <a class="navegacao-link">
+        Fundação Laureano
+        <i class="uil uil-angle-double-right"></i>
+      </a>
+    </li>
+    <li>
+      <a class="navegacao-link" href="{% url 'diretoriaFundacao' %}">
+        Diretoria e Conselho
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<h1 class="pags-title">Fundação Laureano</h1>
+
+<section class="pags-section column-center">
+
+  <h2 class="pags-h2 row-center">Diretoria Executiva</h2>
+
+  {% for item in diretoriaexecutiva %}
+    <main class="container-card">
+      <img
+        src="/image/{{ item.FotoDiretorExecutivo }}"
+        alt="{{ item.NomeDiretorExecutivo }}"
+        class="board-icon"
+      />
+      <div class="background-card">
+        <p class="board-name">{{ item.NomeDiretorExecutivo }}</p>
+        <p class="board-job">{{ item.CargoDiretorExecutivo }}</p>
+      </div>
+      <img
+        src="{% static '/images/quote-detail.png' %}"
+        alt="aspas"
+        class="quotes-image"
+      />
+    </main>
+  {% endfor %}
+
+  <h2 class="pags-h2 row-center">Conselho Deliberativo</h2>
+
+  {% for item in conselho %}
+    <main class="container-card">
+      <img
+        src="/image/{{ item.FotoConselho }}"
+        alt="{{ item.NomeConselho }}"
+        class="board-icon"
+      />
+      <div class="background-card">
+        <p class="board-name">{{ item.NomeConselho }}</p>
+        <p class="board-job">{{ item.CargoConselho }}</p>
+      </div>
+      <img
+        src="{% static '/images/quote-detail.png' %}"
+        alt="aspas"
+        class="quotes-image"
+      />
+    </main>
+  {% endfor %}
+
+</section>
+
+<div class="other-pags-links">
+  <ul class="row-j-start">
+    <li>
+      <a class="other-pags-link" href="{% url 'diretoriaHospital' %}">
+        Hospital Laureano
+      </a>
+    </li>
+    <li>
+      <a class="other-pags-link" href="{% url 'nossaMissao' %}">
+        Nossa Missão
+      </a>
+    </li>
+  </ul>
+</div>
+{% endblock body %}

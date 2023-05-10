@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+{% block titulo %}
+HOSPITAL LAUREANO - DIRETORIA
+{% endblock titulo %} 
+
+{% block body %}
+
+<h1>DIRETORIA</h1>
+
+{% for item in diretoria %}  
+<ul>
+    <li>
+        <img src="/image/{{ item.FotoDiretoria }}" width="50">
+        <br>
+        {{item.NomeDiretoria}}
+        <br>
+        {{item.CargoDiretoria}}
+    </li>
+</ul> 
+
+{% endfor %}
+
+
+
+<a class="mx-auto my-0 text-uppercase text-amarelo mx-auto mt-2 mb-5 style=" href="{% url 'home' %}">Back</a>
+{% endblock body %}

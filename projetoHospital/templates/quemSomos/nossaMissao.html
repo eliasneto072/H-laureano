@@ -1,0 +1,88 @@
+{% extends 'base.html' %} {% load static %} {% block titulo %} Hospital Napoleão
+Laureano - Nossa Missão {% endblock titulo %} {% block body %}
+
+<div class="navegacao">
+  <ul class="row-j-start">
+    <li>
+      <a class="navegacao-link" href="{% url 'home' %}">
+        Início
+        <i class="uil uil-angle-double-right"></i>
+      </a>
+    </li>
+    <li>
+      <a class="navegacao-link">
+        Quem Somos
+        <i class="uil uil-angle-double-right"></i>
+      </a>
+    </li>
+    <li>
+      <a class="navegacao-link" href="{% url 'nossaMissao' %}">
+        Nossa Missão
+      </a>
+    </li>
+  </ul>
+</div>
+
+<h1 class="pags-title">Missão, Visão e Valores</h1>
+{% for item in missao|slice:":1" %}
+<section class="pags-section">
+  <div class="mission_title">
+    <img class="mission_icon" src="{% static '/images/mountain_icon.png' %}" />
+    
+  
+
+    <h2 class="pags-h2">Missão</h2>
+    
+  </div>
+  <p class="pags-text">
+    {{ item.Missao }}
+  </p>
+
+  <div class="mission_title">
+    <img class="mission_icon" src="{% static '/images/star_icon.png' %}" />
+    <h2 class="pags-h2">Política de Qualidade</h2>
+  </div>
+  <p class="pags-text">
+    {{item.PoliticadeQualidade}}
+  </p>
+
+  <div class="mission_title">
+    <img class="mission_icon" src="{% static '/images/goal_icon.png' %}" />
+    <h2 class="pags-h2">Propósito</h2>
+  </div>
+  <p class="pags-text">{{item.Proposito}}</p>
+
+  
+  <div class="mission_title">
+    <img class="mission_icon" src="{% static '/images/heart_icon.png' %}" />
+    <h2 class="pags-h2">Valores</h2>
+  </div>
+  <p class="pags-text">
+    {{item.Valores}}
+  </p>
+
+  <div class="mission_title">
+    <img class="mission_icon" src="{% static '/images/eye_icon.png' %}" />
+    <h2 class="pags-h2">Visão</h2>
+  </div>
+  <p class="pags-text">
+    {{item.Visao}}
+  </p>
+</section>
+{% endfor %}
+
+<div class="other-pags-links">
+  <ul class="row-j-start">
+    <li>
+      <a class="other-pags-link" href="{% url 'historiaHospital' %}">
+        Hospital Laureano
+      </a>
+    </li>
+    <li>
+      <a class="other-pags-link" href="{% url 'historiaFundacao' %}">
+        Fundação Laureano
+      </a>
+    </li>
+  </ul>
+</div>
+{% endblock body %}

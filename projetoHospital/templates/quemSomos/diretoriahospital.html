@@ -1,0 +1,71 @@
+{% extends 'base.html' %} {% load static %} {% block titulo %} Hospital Napoleão
+Laureano - Diretoria do Hospital {% endblock titulo %} {% block body %}
+
+<nav class="navegacao">
+  <ul class="row-j-start">
+    <li>
+      <a class="navegacao-link" href="{% url 'home' %}">
+        Início
+        <i class="uil uil-angle-double-right"></i>
+      </a>
+    </li>
+    <li>
+      <a class="navegacao-link">
+        Quem Somos
+        <i class="uil uil-angle-double-right"></i>
+      </a>
+    </li>
+    <li>
+      <a class="navegacao-link">
+        Hospital Laureano
+        <i class="uil uil-angle-double-right"></i>
+      </a>
+    </li>
+    <li>
+      <a class="navegacao-link" href="{% url 'diretoriaHospital' %}">
+        Diretoria
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<h1 class="pags-title">Hospital Laureano</h1>
+
+<section class="pags-section">
+  <h2 class="pags-h2">Diretoria</h2>
+  {% for item in diretoria %}
+  <main class="container-card">
+    <img
+      src="/image/{{ item.FotoDiretoria }}"
+      alt="imagem do diretor"
+      class="board-icon"
+    />
+    <div class="background-card">
+      <p class="board-name">{{item.NomeDiretoria}}</p>
+      <p class="board-job">{{item.CargoDiretoria}}</p>
+    </div>
+    <img
+      src="{% static '/images/quote-detail.png' %}"
+      alt="aspas"
+      class="quotes-image"
+    />
+  </main>
+  {% endfor %}
+</section>
+
+<div class="other-pags-links">
+  <ul class="row-j-start">
+    <li>
+      <a class="other-pags-link" href="{% url 'diretoriaFundacao' %}">
+        Fundação Laureano
+      </a>
+    </li>
+
+    <li>
+      <a class="other-pags-link" href="{% url 'nossaMissao' %}">
+        Nossa Missão
+      </a>
+    </li>
+  </ul>
+</div>
+{% endblock body %}

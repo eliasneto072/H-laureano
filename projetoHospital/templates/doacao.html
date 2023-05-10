@@ -1,0 +1,72 @@
+{% extends 'base.html' %} {% load static %} {% block titulo %}Hospital Napoleão
+Laureano - Doações {%endblock titulo %} {% block body %}
+
+<div class="navegacao">
+  <ul class="row-j-start">
+    <li>
+      <a class="navegacao-link" href="{% url 'home' %}">
+        Início
+        <i class="uil uil-angle-double-right"></i>
+      </a>
+    </li>
+    <li>
+      <a class="navegacao-link" href="{% url 'doacao' %}"> Quero Doar </a>
+    </li>
+  </ul>
+</div>
+
+<h1 class="pags-title">Quero Doar</h1>
+<section class="pags-section column-center">
+  <h2 class="pags-h2 row-center">
+    Seja um doador do <br />
+    Hospital Napoleão Laureano
+  </h2>
+  <h3 class="pags-h3 row-center">
+    Sua doação é muito importante para podermos continuar a salvar vidas
+  </h3>
+
+  <div class="donate-wrapper row-center">
+    {% for item in doacao %}
+    <div class="donate">
+      <img
+        src="/image/{{ item.Imagem }}"
+        alt="{{ item.Meio }}"
+        class="donate-image"
+      />
+    </div>
+
+    <div class="small-responsive column-center">
+      <div class="donate-info-wrapper">
+        <div class="mini-image">
+          <img
+            src="/image/{{ item.Imagem }}"
+            alt="{{ item.Meio }}"
+            class="donate-image-mini"
+          />
+        </div>
+        <span class="donate-info"> {{item.Informacoes}} </span>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% for item in doacao %}
+<div class="modal">
+  <div class="donate-info-wrapper">
+    <div class="mini-image">
+      <img
+        src="/image/{{ item.Imagem }}"
+        alt="{{ item.Meio }}"
+        class="donate-image-mini"
+      />
+    </div>
+    <span class="donate-info"> {{item.Informacoes}} </span>
+  </div>
+  <span class="close close-donate">&times;</span>
+</div>
+{% endfor %}
+
+<script type="text/javascript" src='{% static "/scripts/doacao.js" %}'></script>
+
+{% endblock body %}

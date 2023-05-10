@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/principal.css' %}">
+{% endblock css %}
+
+
+{% block title %}
+HOSPITAL LAUREANO - ADMIN
+{% endblock title %}
+
+{% block body %}
+
+<h1>TESTE - ADMIN</h1>
+
+<h1>Adcionar/Editar Médico</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Salvar</button>
+</form>
+
+
+{% comment %} O botão delete só aparece se estiver editando {% endcomment %}
+{% if medico %}
+<a href="{% url 'delete-medico' medico.id %}">Apagar</a>
+{% endif %}
+
+<a class="mx-auto my-0 text-uppercase text-amarelo mx-auto mt-2 mb-5 style=" href="{% url 'admin-Guia-Medico' %}">Back</a>
+{% endblock body %}

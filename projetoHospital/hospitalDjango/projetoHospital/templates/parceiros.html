@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+
+{% block titulo %}
+HOSPITAL LAUREANO - PARCEIROS
+{% endblock titulo %} 
+
+{% block body %}
+
+<h1>TESTE - PARCEIROS</h1>
+
+
+
+{% for item in parceiro %}  
+<img src="/image/{{item.FotoParceiro}}">
+{% endfor %}
+
+<a class="mx-auto my-0 text-uppercase text-amarelo mx-auto mt-2 mb-5 style=" href="{% url 'home' %}">Back</a>
+{% endblock body %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+
+{% block titulo %}
+HOSPITAL LAUREANO - CONVENIOS
+{% endblock titulo %} 
+
+{% block body %}
+
+<h1>CONVENIOS</h1>
+
+<p>O Hospital trabalha com o SUS e os seguintes planos de saúde: </p>
+
+{% for item in convenio %}  
+<ul>
+    <li>
+        <img src="/image/{{ item.FotoCovenio }}" width="50">
+        {{item.NomeConvenio}}
+    </li>
+</ul> 
+
+{% endfor %}
+
+
+
+<a class="mx-auto my-0 text-uppercase text-amarelo mx-auto mt-2 mb-5 style=" href="{% url 'home' %}">Back</a>
+{% endblock body %}
